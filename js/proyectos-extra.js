@@ -662,12 +662,7 @@ PROYECTOS.forEach(p => { if (!p.sensores) p.sensores = []; });
       { k: 'D22', texto: 'RST del RC522' }, { k: 'D4', texto: 'Señal (S) del buzzer' },
       { k: '3V3', texto: 'VCC del RC522 (3,3 V, no 5 V) y del buzzer' }, { k: 'GND', texto: 'GND común' }
     ], 'ESP32 DevKit (30 pines). Confirma la numeración en la serigrafía de tu placa.')}
-    ${diagramaUno([
-      { k: 'D10', texto: 'SDA (SS) del RC522' }, { k: 'D13', texto: 'SCK del RC522' },
-      { k: 'D11', texto: 'MOSI del RC522' }, { k: 'D12', texto: 'MISO del RC522' },
-      { k: 'D9', texto: 'RST del RC522' }, { k: 'D6', texto: 'Señal (S) del buzzer' },
-      { k: '3V3', texto: 'VCC del RC522 (3,3 V, no 5 V)' }, { k: '5V', texto: 'VCC del buzzer' }, { k: 'GND', texto: 'GND común' }
-    ], 'Arduino UNO / UNO R4 WiFi: los pines SPI y los de este esquema coinciden con el Arduino UNO. Usa 3,3 V para el RC522.')}
+    <figure class="diagrama diagrama-ancho">${SVG_RFID_UNO}<figcaption>Arduino UNO / UNO R4 WiFi con RC522 y buzzer. Los cables siguen los mismos colores que el diagrama del ESP32.</figcaption></figure>
     <h3>Tabla de cableado (Arduino UNO)</h3>
     ${tabla(['Componente', 'Pin del componente', 'Pin de Arduino UNO', 'Función'], [
       ['RC522', 'SDA (SS)', 'D10', 'Selección del lector'],
