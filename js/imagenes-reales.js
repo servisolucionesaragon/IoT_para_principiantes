@@ -73,10 +73,10 @@ const FOTOS_REALES = {
   },
   "transistor": {
     "src": "img/componentes/transistor.jpg",
-    "autor": "oomlout",
-    "licencia": "CC BY-SA 2.0",
-    "fuente": "https://commons.wikimedia.org/wiki/File:TRNN-T92-X-K222-01_(16237028347).jpg",
-    "titulo": "File:TRNN-T92-X-K222-01 (16237028347).jpg"
+    "autor": "Tienda Arca Electrónica (2N2222)",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://www.arcaelectronica.com/",
+    "titulo": "Transistor NPN 2N2222 (foto de la tienda Arca Electrónica)"
   },
   "rtc-ds3231": {
     "src": "img/componentes/rtc-ds3231.png",
