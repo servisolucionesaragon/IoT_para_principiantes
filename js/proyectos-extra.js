@@ -620,6 +620,26 @@ void loop() {
   }
   delay(2000);   // evita lecturas repetidas
 }`,
+  web: `
+    <p>La carpeta del proyecto incluye <strong>index.html</strong>, una página que muestra en tiempo real los registros de entrada y salida, y permite asignar tarjetas y registrar accesos a mano. Funciona en cualquier navegador sin instalar nada.</p>
+    <h3>Qué muestra</h3>
+    <ul>
+      <li><strong>Dentro ahora:</strong> contador de personas que figuran dentro del colegio.</li>
+      <li><strong>Tarjetas nuevas por asignar:</strong> UID de las tarjetas que nadie ha registrado todavía, con campos para nombre y documento.</li>
+      <li><strong>Registros:</strong> tabla con fecha, hora, nombre, documento y tipo (entrada o salida). Puedes buscar, filtrar por fecha y tipo, y exportar a Excel (CSV).</li>
+      <li><strong>Estudiantes registrados:</strong> lista con opción de eliminar.</li>
+      <li><strong>Registrar acceso manual:</strong> para visitas o cuando alguien olvida la tarjeta. La página no deja registrar una entrada si la persona ya figura dentro, ni una salida si figura fuera.</li>
+    </ul>
+    <h3>Cómo se conecta</h3>
+    <p>La página se conecta a la misma base de datos de Firebase que escribe la placa. Cuando cambia algo, se actualiza sola. El indicador de la cabecera muestra <strong>● En vivo</strong> cuando está conectada, <strong>○ Reconectando</strong> si se pierde la conexión, y <strong>Sin permiso</strong> si Firebase rechaza la lectura (en ese caso, revisa las reglas).</p>
+    <h3>Cómo usarla</h3>
+    <ol>
+      <li>Abre <code>index.html</code> con un doble clic.</li>
+      <li>Reemplaza el marcador <code>TU-PROYECTO</code> de la variable <code>DB_URL</code> por la URL de tu base de Firebase.</li>
+      <li>Revisa que aparezca <strong>● En vivo</strong> en la cabecera.</li>
+    </ol>
+    <div class="caja advertencia"><strong>Datos personales</strong>La página muestra nombres y documentos de estudiantes. Con las reglas abiertas de Firebase, cualquiera con la URL puede ver y modificar esos datos. Usa la página solo en un equipo del colegio y no la publiques en internet hasta agregar autenticación.</div>
+    <p>Código y página completos: <a href="https://github.com/servisolucionesaragon/IoT_para_principiantes/tree/main/proyectos/control-acceso-rfid" target="_blank" rel="noopener">carpeta del proyecto en GitHub</a>.</p>`,
   pruebas: ['Una tarjeta registrada muestra el nombre y alterna entrada/salida en el monitor serie.', 'Una tarjeta nueva aparece como pendiente en la base de datos y suenan dos avisos.', 'Sin Wi-Fi, el ESP32 reintenta la conexión y no se bloquea.'],
   problemas: ['El RC522 no responde → va a 3,3 V; con 5 V se daña.', 'Error de Firebase → revisa el host, las reglas de la base de datos y la conexión a internet.', 'La tarjeta se lee dos veces → espera 2 s (ya incluido) y evita acercarla de forma continua.'],
   mejoras: ['Usar un identificador de estudiante en lugar de datos personales en la base.', 'Activar autenticación y reglas de lectura y escritura restringidas en Firebase.', 'Validar el certificado TLS en lugar de setInsecure().', 'Versión para Arduino R4 WiFi: mismo cableado SPI del R4 (SS = D10, RST = D9, buzzer = D6) y biblioteca WiFiS3.'],

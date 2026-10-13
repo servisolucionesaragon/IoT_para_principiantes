@@ -292,6 +292,7 @@
         ?`<div class="acciones"><button type="button" class="secundario" id="btn-lab-proyecto" data-proyecto="${p.id}">Abrir en el laboratorio</button></div>
            <h2>Código</h2>${cod(p.codigo)}`
         : `<div class="caja advertencia"><strong>Código pendiente</strong>Este proyecto de diseño aún no tiene un programa verificado en esta plataforma.</div>`}
+      ${p.web ? `<h2>Página web para visualizar los datos</h2>${p.web}` : ''}
       <h2>Pruebas para comprobar</h2><ul>${p.pruebas.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
       <h2>Problemas frecuentes</h2><ul>${p.problemas.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
       <h2>Mejoras opcionales</h2><ul>${p.mejoras.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
