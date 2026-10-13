@@ -182,5 +182,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar",
     "fuente": "",
     "titulo": "Sensor de lluvia FC-37 (imagen del docente)"
+  },
+  "ds18b20": {
+    "src": "img/componentes/ds18b20.webp",
+    "autor": "Aportada por el docente (producto de led-diode.com)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "https://es.led-diode.com/development-board/ds18b20-temperature-sensor-module-kit.html",
+    "titulo": "Kit DS18B20 con sonda e interfaz (imagen del docente)"
   }
 };
