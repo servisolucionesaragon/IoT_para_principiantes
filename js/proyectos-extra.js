@@ -675,3 +675,20 @@ PROYECTOS.forEach(p => { if (!p.sensores) p.sensores = []; });
       ['Buzzer', 'VCC / GND', '5V / GND', 'Alimentación']
     ])}`;
 }
+
+/* Explicación de la opción HIGH/LOW del buzzer en el configurador */
+PROYECTOS.find(x => x.id === 'acceso-rfid-nube').configuracion = `
+  <p>El configurador pregunta <strong>«El buzzer suena con…»</strong>. Esa opción decide cómo el programa enciende el buzzer. En el código aparece como <code>#define ACTIVO_BAJO</code>.</p>
+  <table><thead><tr><th>Opción</th><th>Qué significa</th><th>Cuándo elegirla</th></tr></thead><tbody>
+    <tr><td><strong>HIGH (lo habitual)</strong></td><td><code>ACTIVO_BAJO false</code>: el buzzer suena cuando el pin va a HIGH (5 V o 3,3 V) y calla con LOW.</td><td>Es la opción por defecto. Prueba primero con ella.</td></tr>
+    <tr><td><strong>LOW</strong></td><td><code>ACTIVO_BAJO true</code>: el buzzer suena cuando el pin va a LOW (0 V) y calla con HIGH.</td><td>Si tu buzzer suena al revés: en silencio cuando debería sonar, o sonando todo el tiempo.</td></tr>
+  </tbody></table>
+  <h3>Cómo saber cuál elegir</h3>
+  <ol>
+    <li>Genera el código con <strong>HIGH</strong>, súbelo y abre el monitor serie.</li>
+    <li>Al encender la placa el buzzer debe quedar <strong>en silencio</strong>. Al pasar una tarjeta registrada, suena un pitido corto (entrada) o dos (salida).</li>
+    <li>Si suena sin parar desde el encendido, vuelve al configurador, elige <strong>LOW</strong> y genera el código otra vez.</li>
+    <li>Si no suena nunca, revisa el cableado (señal, VCC y GND) antes de cambiar la opción.</li>
+  </ol>
+  <div class="caja consejo"><strong>Buzzer activo o pasivo</strong>El código enciende el buzzer con <code>digitalWrite</code>, así que funciona con un buzzer <strong>activo</strong> (el que trae un oscilador interno y suena solo al recibir voltaje). Si tu buzzer es <strong>pasivo</strong>, necesita una señal de frecuencia con <code>tone()</code>, y ese código no viene incluido: cambia a un buzzer activo o adapta las funciones <code>beep</code>.</div>
+  <p class="pista">El configurador escribe esta opción en el código generado, así que no tienes que editarla a mano.</p>`;
