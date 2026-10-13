@@ -133,5 +133,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar",
     "fuente": "",
     "titulo": "Módulo BMP280 (imagen del docente)"
+  },
+  "sensor-llama": {
+    "src": "img/componentes/sensor-llama.png",
+    "autor": "Aportada por el docente (origen no indicado)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "",
+    "titulo": "Módulo FC-51 infrarrojo (imagen del docente)"
   }
 };
