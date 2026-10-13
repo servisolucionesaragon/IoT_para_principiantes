@@ -168,5 +168,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar",
     "fuente": "",
     "titulo": "Potenciómetro rotatorio (imagen del docente)"
+  },
+  "mq2": {
+    "src": "img/componentes/mq2.webp",
+    "autor": "Aportada por el docente (origen no indicado)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "",
+    "titulo": "Sensor de gas MQ-2 (imagen del docente)"
   }
 };
