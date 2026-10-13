@@ -147,5 +147,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar",
     "fuente": "",
     "titulo": "Módulos PIR HC-SR501 y BISS0001 (imagen del docente)"
+  },
+  "joystick": {
+    "src": "img/componentes/joystick.png",
+    "autor": "Aportada por el docente (origen no indicado)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "",
+    "titulo": "Módulo joystick analógico (imagen del docente)"
   }
 };
