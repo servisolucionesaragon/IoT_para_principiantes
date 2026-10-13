@@ -102,3 +102,14 @@ node --check js/contenido.js && node --check js/app.js && node --check js/labora
 - **Material Elegoo:** Módulo 9 (6 lecciones del coche inteligente).
 - **Publicación:** `publicar/publicar.mjs` (Worker `iot-para-principiantes`, plan gratuito). Ver README.
 - **Pendientes nuevos:** probar los diagramas y el filtro en el navegador de escritorio; revisar que el navegador no conserve versiones antiguas (se añadió `?v=` a los recursos); decidir si se usan fotos reales.
+
+### Publicación: cómo se hizo (2026-10-12)
+
+- URL en vivo: https://iot-para-principiantes.servisolucionesti.workers.dev/ (verificada: HTTP 200 en index, scripts, estilos e imagen).
+- `node publicar/publicar.mjs` **falla con código 127** en esta máquina: el `spawnSync` de Node no encuentra `cf`. Con el mismo comando desde la terminal, `cf deploy` funciona. Mientras no se corrija, publica así:
+  ```
+  cd publicar
+  rm -rf sitio && mkdir sitio && cp -r ../index.html ../css ../js ../img sitio/
+  cf deploy
+  ```
+- `publicar.mjs` ya incluye `img/` en la lista de archivos a publicar (antes faltaba y la imagen del proyecto RFID daba 404).
