@@ -113,3 +113,11 @@ node --check js/contenido.js && node --check js/app.js && node --check js/labora
   cf deploy
   ```
 - `publicar.mjs` ya incluye `img/` en la lista de archivos a publicar (antes faltaba y la imagen del proyecto RFID daba 404).
+
+### Tailwind, fotos reales y componentes nuevos (2026-10-12, tercera parte)
+
+- **Tailwind CSS** por CDN oficial (`cdn.tailwindcss.com`) con la configuración en `index.html`; los colores siguen las variables de `css/estilos.css`.
+- **Componentes:** 49 fichas (`js/componentes.js` + `js/componentes-nuevos.js`), 11 categorías.
+- **Fotos reales (14 de 49):** `js/imagenes-reales.js` y `img/componentes/`. Créditos completos en `docs/CREDITOS_IMAGENES.md`. Se eliminaron LED y ESP32 porque se perdió su atribución. Los demás componentes usan la ilustración SVG original.
+- **Pendiente:** la imagen de la tabla de código de colores (enviada en el chat) no está guardada como archivo; se usa la tabla en HTML. Para ponerla, guárdala como `img/componentes/codigo-colores.png`.
+- **Despliegue:** `cd publicar`, copiar `index.html css js img` a `sitio/`, y `cf deploy`.

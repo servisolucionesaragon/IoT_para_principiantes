@@ -216,23 +216,24 @@ const RESISTENCIAS_HTML = `
 <p>Se mide en <strong>ohmios (Ω)</strong>. Abreviaturas comunes: 1 kΩ = 1 000 Ω; 1 MΩ = 1 000 000 Ω.</p>
 
 <h2>Código de colores</h2>
-<p>Las bandas indican el valor. Se leen desde el extremo más cercano a las bandas, la banda de tolerancia va al final (oro o plata).</p>
+<p>Las bandas indican el valor. Se leen desde el lado donde están más juntas; la banda de tolerancia va al final (dorado o plateado). Las resistencias de 5 bandas tienen tres dígitos; las de 4 bandas, dos.</p>
 <div class="tabla-wrap"><table>
-<thead><tr><th>Color</th><th>Dígito</th><th>Multiplicador</th></tr></thead>
+<thead><tr><th>Color</th><th>1.er dígito</th><th>2.º dígito</th><th>3.er dígito</th><th>Multiplicador</th><th>Tolerancia</th></tr></thead>
 <tbody>
-<tr><td>Negro</td><td>0</td><td>×1</td></tr>
-<tr><td>Marrón</td><td>1</td><td>×10</td></tr>
-<tr><td>Rojo</td><td>2</td><td>×100</td></tr>
-<tr><td>Naranja</td><td>3</td><td>×1 000</td></tr>
-<tr><td>Amarillo</td><td>4</td><td>×10 000</td></tr>
-<tr><td>Verde</td><td>5</td><td>×100 000</td></tr>
-<tr><td>Azul</td><td>6</td><td>×1 000 000</td></tr>
-<tr><td>Violeta</td><td>7</td><td>—</td></tr>
-<tr><td>Gris</td><td>8</td><td>—</td></tr>
-<tr><td>Blanco</td><td>9</td><td>—</td></tr>
-<tr><td>Oro / Plata</td><td>—</td><td>Tolerancia 5 % / 10 %</td></tr>
+<tr><td>Negro</td><td>0</td><td>0</td><td>0</td><td>10⁰ (×1)</td><td>—</td></tr>
+<tr><td>Marrón</td><td>1</td><td>1</td><td>1</td><td>10¹ (×10)</td><td>±1 %</td></tr>
+<tr><td>Rojo</td><td>2</td><td>2</td><td>2</td><td>10² (×100)</td><td>±2 %</td></tr>
+<tr><td>Naranja</td><td>3</td><td>3</td><td>3</td><td>10³ (×1 000)</td><td>—</td></tr>
+<tr><td>Amarillo</td><td>4</td><td>4</td><td>4</td><td>10⁴ (×10 000)</td><td>—</td></tr>
+<tr><td>Verde</td><td>5</td><td>5</td><td>5</td><td>10⁵ (×100 000)</td><td>±0,5 %</td></tr>
+<tr><td>Azul</td><td>6</td><td>6</td><td>6</td><td>10⁶ (×1 000 000)</td><td>±0,25 %</td></tr>
+<tr><td>Violeta</td><td>7</td><td>7</td><td>7</td><td>10⁷</td><td>±0,1 %</td></tr>
+<tr><td>Gris</td><td>8</td><td>8</td><td>8</td><td>10⁸</td><td>±0,05 %</td></tr>
+<tr><td>Blanco</td><td>9</td><td>9</td><td>9</td><td>10⁹</td><td>—</td></tr>
+<tr><td>Dorado</td><td colspan="3">—</td><td>×0,1</td><td>±5 %</td></tr>
+<tr><td>Plateado</td><td colspan="3">—</td><td>×0,01</td><td>±10 %</td></tr>
 </tbody></table></div>
-<p>Ejemplos: <strong>rojo-rojo-marrón</strong> = 22 × 10 = <strong>220 Ω</strong>. <strong>marrón-negro-naranja</strong> = 10 × 1 000 = <strong>10 kΩ</strong>. <strong>amarillo-violeta-rojo</strong> = 47 × 100 = <strong>4,7 kΩ</strong>.</p>
+<p>Ejemplos (5 bandas): <strong>rojo-rojo-negro-marrón-marrón</strong> = 220 × 10 = <strong>2 200 Ω</strong>. <strong>marrón-negro-negro-rojo-marrón</strong> = 100 × 100 = <strong>10 kΩ ±1 %</strong>. Con 4 bandas: <strong>rojo-rojo-marrón</strong> = 22 × 10 = <strong>220 Ω</strong>.</p>
 <p class="pista">Si tienes dudas, mide la resistencia con un multímetro en la escala de Ω.</p>
 
 <h2>Calcular la resistencia de un LED</h2>

@@ -161,12 +161,14 @@
     const total = LECCIONES.length;
     const hechas = LECCIONES.filter(l => completadas().has(l.id)).length;
     return `
-      <p class="migas">Inicio</p>
-      <h1>Aprende electrónica, Arduino, ESP32 y IoT desde cero</h1>
-      <p>Esta plataforma te guía paso a paso: entiendes un concepto, ves cómo se conecta el circuito, copias el código, lo comprendes y compruebas el resultado. Todo está en español.</p>
-      <div class="acciones">
-        <a class="boton" href="#/leccion/m1-que-es-iot">Empezar por el principio</a>
-        <a class="boton secundario" href="#/laboratorio">Abrir el laboratorio USB</a>
+      <div class="hero mb-6">
+        <p class="text-sm font-semibold uppercase tracking-widest opacity-80">IoT para principiantes</p>
+        <h1 class="!text-3xl sm:!text-4xl">Aprende electrónica, Arduino, ESP32 y IoT desde cero</h1>
+        <p class="max-w-2xl">Entiende un concepto, mira cómo se conecta el circuito, copia el código y comprueba el resultado. Todo en español.</p>
+        <div class="acciones">
+          <a class="boton !bg-white !text-primario" href="#/leccion/m1-que-es-iot">Empezar por el principio</a>
+          <a class="boton secundario !text-white !ring-white" href="#/componentes">Ver sensores y dispositivos</a>
+        </div>
       </div>
       <h2>Cómo estudiar</h2>
       <ol class="pasos">

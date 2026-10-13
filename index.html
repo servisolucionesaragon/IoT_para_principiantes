@@ -6,6 +6,79 @@
   <title>Aprende IoT, Arduino y ESP32 desde cero</title>
   <meta name="description" content="Plataforma educativa para principiantes: Arduino, ESP32, sensores, IoT, simulación y laboratorio USB.">
   <link rel="stylesheet" href="css/estilos.css?v=2026-10-12b">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primario: 'var(--primario)', 'primario-claro': 'var(--primario-claro)', acento: 'var(--acento)',
+            superficie: 'var(--superficie)', fondo: 'var(--fondo)', texto: 'var(--texto)',
+            'texto-suave': 'var(--texto-suave)', borde: 'var(--borde)', oscuro: 'var(--oscuro)',
+            ok: 'var(--ok)', 'ok-fondo': 'var(--ok-fondo)', aviso: 'var(--aviso)', 'aviso-fondo': 'var(--aviso-fondo)',
+            error: 'var(--error)', 'error-fondo': 'var(--error-fondo)'
+          },
+          fontFamily: { sans: ['system-ui', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'] },
+          boxShadow: { tarjeta: '0 1px 2px rgba(15,27,42,.06), 0 8px 24px rgba(15,27,42,.06)' }
+        }
+      }
+    };
+  </script>
+  <style type="text/tailwindcss">
+    @layer components {
+      .cabecera { @apply bg-oscuro text-white; }
+      .marca { @apply text-white no-underline font-bold; }
+      .buscador input { @apply rounded-full border-slate-600 bg-slate-800/70 focus:ring-2 focus:ring-acento focus:outline-none; }
+      .menu { @apply bg-superficie border-r border-borde; }
+      .menu a { @apply rounded-lg px-3 py-1.5 text-sm font-medium hover:bg-primario-claro transition; }
+      .menu a.activo { @apply bg-primario text-white shadow; }
+      .menu h2 { @apply text-[.7rem] tracking-widest text-texto-suave; }
+      .tarjeta { @apply flex flex-col gap-2 rounded-2xl border border-borde bg-superficie p-4 shadow-tarjeta no-underline text-texto transition duration-200 hover:-translate-y-1 hover:border-acento hover:shadow-xl; }
+      .tarjeta .etiqueta { @apply text-[.7rem] font-semibold uppercase tracking-wider text-acento; }
+      .tarjeta strong { @apply text-base leading-snug; }
+      .caja { @apply my-4 max-w-[78ch] rounded-xl border-l-4 p-4 shadow-sm; }
+      .caja strong { @apply block mb-1; }
+      .caja.consejo { @apply bg-primario-claro border-primario; }
+      .caja.advertencia { @apply bg-aviso-fondo border-aviso; }
+      .caja.peligro { @apply bg-error-fondo border-error; }
+      .caja.ok { @apply bg-ok-fondo border-ok; }
+      .boton, button { @apply inline-flex items-center justify-center gap-1.5 rounded-xl bg-primario px-4 py-2 font-semibold text-white shadow-sm transition hover:brightness-110 active:scale-[.98]; }
+      button.secundario, .boton.secundario { @apply bg-transparent text-primario ring-1 ring-primario hover:bg-primario-claro; }
+      .progreso-barra { @apply h-3 rounded-full bg-primario-claro; }
+      .progreso-barra > div { @apply rounded-full bg-gradient-to-r from-primario to-acento; }
+      .panel, details.panel { @apply rounded-2xl border border-borde bg-superficie p-4 shadow-sm; }
+      .quiz { @apply rounded-2xl border border-borde bg-superficie p-4 shadow-sm; }
+      .quiz label:hover { @apply bg-primario-claro; }
+      .quiz .retro.bien { @apply bg-ok-fondo text-ok; }
+      .quiz .retro.mal { @apply bg-error-fondo text-error; }
+      table { @apply text-sm; }
+      th { @apply bg-primario-claro text-texto font-semibold; }
+      td, th { @apply border border-borde; }
+      .tabla-wrap { @apply rounded-xl border border-borde overflow-hidden; }
+      .diagrama { @apply rounded-2xl border border-borde bg-superficie p-3 shadow-sm; }
+      .ilustracion { @apply my-4 max-w-xs overflow-hidden rounded-2xl border border-borde bg-superficie shadow-sm; }
+      .ilustracion.mini { @apply my-0 max-w-none rounded-xl; }
+      .ilustracion img { @apply block w-full h-auto object-cover aspect-[4/3]; }
+      .ilustracion.mini img { @apply aspect-[4/3]; }
+      .ilustracion figcaption { @apply px-3 py-2 text-xs text-texto-suave; }
+      .ilustracion figcaption a { @apply text-primario underline; }
+      .ilustracion.sin-imagen .marcador { @apply flex aspect-[4/3] items-center justify-center p-4 text-center text-sm font-semibold text-texto-suave bg-primario-claro; }
+      pre.codigo { @apply rounded-2xl shadow-inner; }
+      .copiar { @apply rounded-lg px-3 py-1 text-xs; }
+      .resultados { @apply rounded-2xl border border-borde bg-superficie shadow-2xl; }
+      .resultados a:hover { @apply bg-primario-claro; }
+      .navegacion-lecciones a { @apply shadow-sm; }
+      .pasos li { @apply rounded-2xl shadow-sm; }
+      .pasos li.actual { @apply ring-2 ring-acento; }
+      .pasos li.hecho { @apply border-ok; }
+      .estado-punto { @apply shadow-[0_0_0_3px_rgba(127,127,127,.15)]; }
+      .consola, .editor { @apply rounded-2xl; }
+      .hero { @apply relative overflow-hidden rounded-3xl bg-gradient-to-br from-oscuro via-primario to-acento p-8 text-white shadow-xl; }
+      .hero h1 { @apply text-white; }
+      .hero p { @apply text-white/90; }
+    }
+  </style>
 </head>
 <body>
   <header class="cabecera">
@@ -52,9 +125,11 @@
   <script src="js/contenido.js?v=2026-10-12b"></script>
   <script src="js/contenido-elegoo.js?v=2026-10-12b"></script>
   <script src="js/componentes.js?v=2026-10-12b"></script>
+  <script src="js/componentes-nuevos.js?v=2026-10-12c"></script>
   <script src="js/proyectos-extra.js?v=2026-10-12b"></script>
   <script src="js/diagramas.js?v=2026-10-12b"></script>
-  <script src="js/imagenes.js?v=2026-10-12b"></script>
+  <script src="js/imagenes.js?v=2026-10-12c"></script>
+  <script src="js/imagenes-reales.js?v=2026-10-12c"></script>
   <script src="js/app.js?v=2026-10-12b"></script>
   <script src="js/laboratorio.js?v=2026-10-12b"></script>
 </body>

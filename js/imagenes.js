@@ -163,11 +163,21 @@ const SENSOR_A_COMPONENTE = {
   'Servo': 'servo', 'Bluetooth HC-06': 'bt-hc06', 'Potenciómetro': 'potenciometro'
 };
 
-/* Figura de ilustración; mini = tamaño reducido para tarjetas */
+/* Figura del componente: foto real con licencia libre si existe; si no, ilustración original.
+   mini = tamaño reducido para tarjetas. */
 function imagenComponente(id, mini) {
+  const reales = (typeof FOTOS_REALES !== 'undefined') ? FOTOS_REALES : {};
+  const c = (typeof COMPONENTES !== 'undefined') ? COMPONENTES.find(x => x.id === id) : null;
+  const nombre = c ? c.nombre : id;
+  const clase = 'ilustracion' + (mini ? ' mini' : '');
+  if (reales[id]) {
+    const f = reales[id];
+    const pie = mini ? '' : `<figcaption>Foto: ${esc(f.autor)} · ${esc(f.licencia)} · <a href="${esc(f.fuente)}" target="_blank" rel="noopener">fuente</a></figcaption>`;
+    return `<figure class="${clase} foto"><img src="${esc(f.src)}" alt="${esc(nombre)}" loading="lazy">${pie}</figure>`;
+  }
   const svg = ILUSTRACIONES[id];
-  if (!svg) return '';
-  return `<figure class="ilustracion${mini ? ' mini' : ''}">${svg}</figure>`;
+  if (svg) return `<figure class="${clase}">${svg}</figure>`;
+  return `<figure class="${clase} sin-imagen"><div class="marcador">${esc(nombre)}</div></figure>`;
 }
 
 /* Ilustraciones que faltan en COMPONENTES (ultrasonido, potenciómetro en el catálogo) */
