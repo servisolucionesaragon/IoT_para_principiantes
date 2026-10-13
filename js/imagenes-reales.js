@@ -10,10 +10,10 @@ const FOTOS_REALES = {
   },
   "lm35": {
     "src": "img/componentes/lm35.jpg",
-    "autor": "Vauxford",
-    "licencia": "CC BY-SA 4.0",
-    "fuente": "https://commons.wikimedia.org/wiki/File:2006_Renault_Master_LM35_DCi_100_LWB_2.5_Front.jpg",
-    "titulo": "File:2006 Renault Master LM35 DCi 100 LWB 2.5 Front.jpg"
+    "autor": "Tienda Zamux (Ferretrónica) — foto de producto",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://www.zamux.co/lm35-sensor-de-temperatura-original",
+    "titulo": "LM35 TO-92 (foto de la tienda Zamux)"
   },
   "dht11": {
     "src": "img/componentes/dht11.png",
