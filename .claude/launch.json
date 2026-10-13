@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "iot-principiantes",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "5741", "--bind", "127.0.0.1"],
+      "port": 5741
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aprende IoT, Arduino y ESP32 desde cero</title>
+  <meta name="description" content="Plataforma educativa para principiantes: Arduino, ESP32, sensores, IoT, simulación y laboratorio USB.">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header class="cabecera">
+    <button class="menu-boton" id="btn-menu" aria-controls="menu" aria-expanded="false">☰ Menú</button>
+    <a class="marca" href="#/inicio">IoT <span>desde cero</span></a>
+    <div class="buscador" role="search">
+      <label for="buscar" class="sr-only">Buscar temas, componentes o proyectos</label>
+      <input id="buscar" type="search" placeholder="Buscar: LED, DHT11, ESP32, servo…" autocomplete="off">
+      <div id="resultados" class="resultados" role="listbox"></div>
+    </div>
+    <button class="boton-tema" id="btn-tema" aria-label="Cambiar modo claro u oscuro">Modo</button>
+  </header>
+
+  <div class="contenedor">
+    <nav class="menu" id="menu" aria-label="Módulos y lecciones">
+      <a href="#/inicio" data-ruta="inicio">Inicio</a>
+      <div id="menu-modulos"></div>
+      <h2>Herramientas</h2>
+      <a href="#/laboratorio" data-ruta="laboratorio">Laboratorio USB</a>
+      <a href="#/proyectos" data-ruta="proyectos">Biblioteca de proyectos</a>
+      <a href="#/diagnostico" data-ruta="diagnostico">Solución de problemas</a>
+      <a href="#/retos" data-ruta="retos">Retos y evaluación</a>
+      <a href="#/recursos" data-ruta="recursos">Recursos y fuentes</a>
+      <h2>Mi progreso</h2>
+      <div style="padding:0 10px 8px">
+        <div class="progreso-barra" aria-hidden="true"><div id="barra-progreso"></div></div>
+        <small id="texto-progreso"></small>
+      </div>
+      <a href="#" id="btn-reiniciar-progreso">Reiniciar progreso</a>
+    </nav>
+
+    <main id="vista" tabindex="-1" aria-live="polite">
+      <p>Cargando…</p>
+    </main>
+  </div>
+
+  <footer>
+    Contenido educativo de práctica. Verifica siempre el hardware y las hojas de datos de tu modelo.
+    El progreso se guarda solo en este navegador.
+  </footer>
+
+  <script src="js/contenido.js"></script>
+  <script src="js/contenido-elegoo.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/laboratorio.js"></script>
+</body>
+</html>
