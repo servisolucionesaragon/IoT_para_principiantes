@@ -304,3 +304,10 @@ footer { font-size: .9rem; }
 .visor-imagen img { max-width: 100%; max-height: 86vh; width: auto; height: auto; object-fit: contain; border-radius: 12px; background: #fff; cursor: zoom-out; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
 .visor-cerrar { position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 999px; border: 0; background: #fff; color: #0d1b2a; font-size: 20px; font-weight: 700; cursor: pointer; }
 .visor-pie { color: #cfe9f2; margin: 12px 0 0; font-size: .95rem; }
+
+/* Texto a todo el ancho disponible (sin columnas estrechas) en todas las secciones */
+#vista p, #vista li, #vista .caja, #vista .quiz, #vista .panel, #vista .migas {
+  max-width: none !important;
+}
+#vista .caja { width: 100%; }
+#vista ul, #vista ol { max-width: none; }
