@@ -231,5 +231,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar (foto de tienda)",
     "fuente": "https://www.steren.com.co/buzzer-pasivo.html",
     "titulo": "Buzzer pasivo (foto de la tienda Steren)"
+  },
+  "bt-hc06": {
+    "src": "img/componentes/bt-hc06.jpg",
+    "autor": "Tienda CD Tecnología (módulo HC-06)",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://sps.cdtechnologia.net/63-modulo-bluetooth-hc-06.html",
+    "titulo": "Módulo Bluetooth HC-06 (foto de la tienda CD Tecnología)"
   }
 };
