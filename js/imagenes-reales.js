@@ -66,10 +66,10 @@ const FOTOS_REALES = {
   },
   "sensor-nivel-agua": {
     "src": "img/componentes/sensor-nivel-agua.jpg",
-    "autor": "Stephan Brosnan, CSIRO",
-    "licencia": "CC BY 3.0",
-    "fuente": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_3719_CSIROs_Fleck_wireless_sensor_network_technology.jpg",
-    "titulo": "File:CSIRO ScienceImage 3719 CSIROs Fleck wireless sensor network technology.jpg"
+    "autor": "Aportada por el docente (referencia WN328 / S-WN328)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "https://images.openai.com/static-rsc-4/",
+    "titulo": "Sensor de nivel de agua WN328 (imagen del docente)"
   },
   "transistor": {
     "src": "img/componentes/transistor.jpg",
