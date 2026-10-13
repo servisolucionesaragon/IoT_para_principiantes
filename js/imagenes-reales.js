@@ -161,5 +161,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar",
     "fuente": "",
     "titulo": "Módulo GPS NEO-6M (imagen del docente)"
+  },
+  "potenciometro": {
+    "src": "img/componentes/potenciometro.png",
+    "autor": "Aportada por el docente (origen no indicado)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "",
+    "titulo": "Potenciómetro rotatorio (imagen del docente)"
   }
 };
