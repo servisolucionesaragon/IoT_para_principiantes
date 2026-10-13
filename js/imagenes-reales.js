@@ -86,11 +86,11 @@ const FOTOS_REALES = {
     "titulo": "File:Bottom side of the clock module PCB (51270056116).png"
   },
   "termistor-ntc": {
-    "src": "img/componentes/termistor-ntc.jpg",
-    "autor": "Ansgar Hellwig",
-    "licencia": "CC BY-SA 2.0 de",
-    "fuente": "https://commons.wikimedia.org/wiki/File:NTC_bead.jpg",
-    "titulo": "File:NTC bead.jpg"
+    "src": "img/componentes/termistor-ntc.webp",
+    "autor": "MercadoLibre (termistor NTC, publicación del docente)",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://articulo.mercadolibre.com.co/MCO-2164394353-termistor-ntc-47d-20-47-ohmios-20-mm-10-piezas-_JM",
+    "titulo": "Termistor NTC (foto de MercadoLibre)"
   },
   "arduino-uno": {
     "src": "img/componentes/arduino-uno.jpg",
@@ -308,5 +308,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar",
     "fuente": "https://encrypted-tbn0.gstatic.com/",
     "titulo": "Sensor de corriente ACS712 (imagen del docente)"
+  },
+  "humedad-suelo": {
+    "src": "img/componentes/humedad-suelo.jpg",
+    "autor": "Amazon (sensor de humedad de suelo)",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://m.media-amazon.com/",
+    "titulo": "Sensor de humedad de suelo capacitivo (foto de Amazon)"
   }
 };
