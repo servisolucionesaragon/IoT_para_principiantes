@@ -70,7 +70,7 @@ COMPONENTES.push(
     precauciones: ['Los valores de β y R0 vienen en la hoja de tu NTC: úsalos.', 'Evita v = 0 (división por cero).']
   },
   {
-    id: 'sensor-vibracion', categoria: 'Movimiento y posición', nombre: 'Sensor de vibración SW-420', voltaje: '3,3–5 V',
+    id: 'sensor-vibracion', categoria: 'Movimiento y posición', nombre: 'Sensor de vibración (SW-420)', voltaje: '3,3–5 V',
     resumen: 'Detecta sacudidas o golpes con un interruptor sensible.',
     funciona: '<p>Tiene un muelle con un contacto. Cuando vibra, el módulo cambia su salida digital. El potenciómetro ajusta la sensibilidad. Sirve para alarmas de golpes.</p>',
     conexion: [['VCC', '5 V'], ['GND', 'GND'], ['DO', 'D7']],

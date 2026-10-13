@@ -83,7 +83,7 @@ const COMPONENTES = [
     precauciones: ['Para medir el ángulo, usa el acelerómetro (ficha MPU-6050).']
   },
   {
-    id: 'acelerometro', categoria: 'Movimiento y posición', nombre: 'Acelerómetro y giroscopio MPU-6050', voltaje: '3,3–5 V (módulo) · comunicación I²C',
+    id: 'acelerometro', categoria: 'Movimiento y posición', nombre: 'Acelerómetro y giroscopio MPU-6050 (GY-521)', voltaje: '3,3–5 V (módulo) · comunicación I²C',
     resumen: 'Mide aceleración en tres ejes y rotación; detecta inclinación y vibración.',
     funciona: '<p>Se comunica por <strong>I²C</strong> con dos cables: SDA (datos) y SCL (reloj). Con el sensor quieto mide la gravedad, que te dice hacia dónde está inclinado. Por defecto en ±2 g, 16 384 cuentas equivalen a 1 g. La dirección I²C habitual es <code>0x68</code>.</p>',
     conexion: [['VCC', '5 V (o 3,3 V según el módulo)'], ['GND', 'GND'], ['SDA', 'A4 en UNO'], ['SCL', 'A5 en UNO']],

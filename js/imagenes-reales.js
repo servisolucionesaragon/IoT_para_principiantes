@@ -203,5 +203,19 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar (miniatura de Google Imágenes)",
     "fuente": "https://encrypted-tbn0.gstatic.com/",
     "titulo": "Sensor de inclinación SW-520D (imagen del docente)"
+  },
+  "acelerometro": {
+    "src": "img/componentes/acelerometro.jpg",
+    "autor": "Tienda Mactrónica (módulo GY-521)",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://www.mactronica.com.co/giroscopio-acelerometro-mpu6050-gy-521",
+    "titulo": "Módulo GY-521 con MPU-6050 (foto de la tienda Mactrónica)"
+  },
+  "sensor-vibracion": {
+    "src": "img/componentes/sensor-vibracion.jpg",
+    "autor": "Tienda Mactrónica (SW-420)",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://www.mactronica.com.co/sensor-vibracion-sw-420",
+    "titulo": "Sensor de vibración SW-420 (foto de la tienda Mactrónica)"
   }
 };
