@@ -105,5 +105,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar",
     "fuente": "",
     "titulo": "Pulsador tactile (foto del docente)"
+  },
+  "led": {
+    "src": "img/componentes/led.png",
+    "autor": "Aportada por el docente (origen no indicado)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "",
+    "titulo": "LED rojo, amarillo y verde (imagen del docente)"
   }
 };
