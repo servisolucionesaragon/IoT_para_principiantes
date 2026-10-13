@@ -140,5 +140,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar",
     "fuente": "",
     "titulo": "Módulo FC-51 infrarrojo (imagen del docente)"
+  },
+  "pir": {
+    "src": "img/componentes/pir.png",
+    "autor": "Aportada por el docente (origen no indicado)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "",
+    "titulo": "Módulos PIR HC-SR501 y BISS0001 (imagen del docente)"
   }
 };
