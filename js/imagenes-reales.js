@@ -98,5 +98,12 @@ const FOTOS_REALES = {
     "licencia": "CC BY 2.0",
     "fuente": "https://commons.wikimedia.org/wiki/File:Arduino_Uno_-_R3.jpg",
     "titulo": "File:Arduino Uno - R3.jpg"
+  },
+  "pulsador": {
+    "src": "img/componentes/pulsador.webp",
+    "autor": "Aportada por el docente (origen no indicado)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "",
+    "titulo": "Pulsador tactile (foto del docente)"
   }
 };
