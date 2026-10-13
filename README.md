@@ -13,7 +13,7 @@ Plataforma web educativa, en español, para aprender **electrónica, Arduino, ES
 
 | Sección | Contenido |
 |---|---|
-| **Módulos 1 a 9** | 29 lecciones: IoT, electricidad, seguridad, Arduino, ESP32, sensores y actuadores, montaje, depuración, datos IoT, simulación con Tinkercad y el coche inteligente Elegoo |
+| **Módulos 1 a 9** | 30 lecciones: IoT, electricidad, señales analógicas y digitales, seguridad, Arduino, ESP32, sensores y actuadores, montaje, depuración, datos IoT, simulación con Tinkercad y el coche inteligente Elegoo |
 | **Sensores y dispositivos** | 49 fichas con funcionamiento, conexión, código y precauciones. Incluye resistencias (código de colores, ejemplos resueltos y práctica interactiva) y protoboard |
 | **Biblioteca de proyectos** | 18 proyectos en cuatro niveles, con filtro por sensor. Incluye el control de acceso RFID con Firebase |
 | **Solución de problemas** | 11 problemas frecuentes con causas, comprobaciones y solución |
@@ -25,7 +25,7 @@ Plataforma web educativa, en español, para aprender **electrónica, Arduino, ES
 
 | Módulo | Tema | Lecciones |
 |---|---|---|
-| 1 | Electrónica e IoT | 3 |
+| 1 | Electrónica e IoT (incluye señales analógicas y digitales) | 4 |
 | 2 | Arduino desde cero | 4 |
 | 3 | ESP32 desde cero | 2 |
 | 4 | Sensores y actuadores | 4 |

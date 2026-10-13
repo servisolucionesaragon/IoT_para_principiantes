@@ -32,7 +32,7 @@ Plataforma web interactiva para personas que empiezan desde cero en IoT, Arduino
 
 | Parte | Estado |
 |---|---|
-| Lecciones | 29 en 9 módulos (módulo 8: tutorial de Tinkercad y 6 ejemplos; módulo 9: coche Elegoo) |
+| Lecciones | 30 en 9 módulos (módulo 8: tutorial de Tinkercad y 6 ejemplos; módulo 9: coche Elegoo) |
 | Sensores y dispositivos | 49 fichas, 48 con foto real (una sección para resistencias), con práctica interactiva y ejemplos resueltos de resistencias |
 | Proyectos | 18 proyectos en niveles 1 a 4, con filtro por sensor. El RFID incluye diagramas, configurador, sección de web y de buzzer |
 | Diagnóstico y retos | 11 problemas y 5 retos |
