@@ -170,14 +170,12 @@
           <a class="boton secundario !text-white !ring-white" href="#/componentes">Ver sensores y dispositivos</a>
         </div>
       </div>
-      <h2>Cómo estudiar</h2>
-      <ol class="pasos">
-        <li><strong>1. Concepto</strong><br>Lee la idea principal y su ejemplo.</li>
-        <li><strong>2. Conexión</strong><br>Sigue el esquema y la tabla de pines.</li>
-        <li><strong>3. Código</strong><br>Copia el programa y lee la explicación.</li>
-        <li><strong>4. Prueba</strong><br>Compara el resultado con lo esperado y responde el cuestionario.</li>
-      </ol>
       <div class="caja advertencia"><strong>Antes de empezar</strong>Trabaja con la placa desconectada al cambiar cables. Los ESP32 usan 3,3 V: no conectes sensores de 5 V directamente a sus pines.</div>
+      ${(() => {
+        const ult = leer('iot-ultima', null);
+        const l = ult && leccionPorId(ult);
+        return l ? `<div class="tarjeta" style="margin:20px 0"><span class="etiqueta">Continúa donde quedaste</span><strong>${esc(l.titulo)}</strong><a class="boton" href="${enlaceLeccion(l)}" style="align-self:flex-start">Seguir leyendo →</a></div>` : '';
+      })()}
       <h2>Tu progreso</h2>
       <div class="progreso-barra"><div style="width:${Math.round(hechas / total * 100)}%"></div></div>
       <p>${hechas} de ${total} lecciones completadas.</p>
@@ -512,6 +510,7 @@
     anadirBotonesCopiar(main);
     montarQuiz(main);
     enlazarVista(a, b);
+    if (a === 'leccion' && b) escribir('iot-ultima', b);
     if (a === 'configurador-rfid') enlazarConfiguradorRfid();
     if (a === 'laboratorio' && typeof window.montarLaboratorio === 'function') {
       window.montarLaboratorio($('#lab-raiz'));
