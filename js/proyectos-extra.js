@@ -623,7 +623,7 @@ void loop() {
   pruebas: ['Una tarjeta registrada muestra el nombre y alterna entrada/salida en el monitor serie.', 'Una tarjeta nueva aparece como pendiente en la base de datos y suenan dos avisos.', 'Sin Wi-Fi, el ESP32 reintenta la conexión y no se bloquea.'],
   problemas: ['El RC522 no responde → va a 3,3 V; con 5 V se daña.', 'Error de Firebase → revisa el host, las reglas de la base de datos y la conexión a internet.', 'La tarjeta se lee dos veces → espera 2 s (ya incluido) y evita acercarla de forma continua.'],
   mejoras: ['Usar un identificador de estudiante en lugar de datos personales en la base.', 'Activar autenticación y reglas de lectura y escritura restringidas en Firebase.', 'Validar el certificado TLS en lugar de setInsecure().', 'Versión para Arduino R4 WiFi: mismo cableado SPI del R4 (SS = D10, RST = D9, buzzer = D6) y biblioteca WiFiS3.'],
-  fuentes: 'Proyecto aportado por el docente (carpeta «Control de acceso RFID»). Credenciales y datos de estudiantes retirados de la versión pública. Pinout: diagrama del propio proyecto.'
+  fuentes: 'Proyecto aportado por el docente. Código y página web en la carpeta proyectos/control-acceso-rfid del repositorio (con marcadores para WiFi y Firebase). Pinout: diagrama del propio proyecto.'
 });
 
 PROYECTOS.forEach(p => { if (!p.sensores) p.sensores = []; });
