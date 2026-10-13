@@ -252,5 +252,26 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar (imagen de fabricante)",
     "fuente": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/images/8812/MFG_5962_XL-5050RGBC-WS2812B.jpg",
     "titulo": "LED RGB WS2812B 5050 (imagen de DigiKey)"
+  },
+  "rele": {
+    "src": "img/componentes/rele.jpg",
+    "autor": "Electronilab (módulo relé 1 canal optoacoplado 5 V)",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://electronilab.co/",
+    "titulo": "Módulo relé de 1 canal 5 V optoacoplado (foto de Electronilab)"
+  },
+  "bomba-agua": {
+    "src": "img/componentes/bomba-agua.jpg",
+    "autor": "Ferretrónica (mini bomba sumergible 5 V)",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://www.ferretronica.com/",
+    "titulo": "Mini bomba de agua sumergible 5 V (foto de Ferretrónica)"
+  },
+  "esp32": {
+    "src": "img/componentes/esp32.jpg",
+    "autor": "Tienda Arca Electrónica (ESP32 DevKit)",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://www.arcaelectronica.com/",
+    "titulo": "ESP32 DevKit (foto de la tienda Arca Electrónica)"
   }
 };
