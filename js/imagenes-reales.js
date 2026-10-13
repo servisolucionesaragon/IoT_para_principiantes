@@ -24,10 +24,10 @@ const FOTOS_REALES = {
   },
   "rfid": {
     "src": "img/componentes/rfid.jpg",
-    "autor": "JrawX",
-    "licencia": "CC0",
-    "fuente": "https://commons.wikimedia.org/wiki/File:RFID-RC522.jpg",
-    "titulo": "File:RFID-RC522.jpg"
+    "autor": "Tienda Didácticas Electrónicas (RC522)",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://www.didacticaselectronicas.com/shop/mfrc-522-kit-lector-escritor-rfid-mfrc522-4748",
+    "titulo": "Lector RFID RC522 (foto de la tienda Didácticas Electrónicas)"
   },
   "servo": {
     "src": "img/componentes/servo.jpg",

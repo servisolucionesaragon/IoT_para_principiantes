@@ -147,7 +147,7 @@ const COMPONENTES = [
     precauciones: ['El centro no siempre da exactamente 512: calibra con la palanca quieta.']
   },
   {
-    id: 'rfid', categoria: 'Identificación y localización', nombre: 'Lector RFID RC522', voltaje: '3,3 V (¡no 5 V!)',
+    id: 'rfid', categoria: 'Identificación y localización', nombre: 'Lector RFID RC522 (MFRC-522)', voltaje: '3,3 V (¡no 5 V!)',
     resumen: 'Lee el identificador (UID) de tarjetas y llaveros RFID de 13,56 MHz.',
     funciona: '<p>El lector emite un campo magnético de baja potencia. Cuando acercas una tarjeta, esta se alimenta del campo y responde con su <strong>UID</strong>, un número único. Se comunica por <strong>SPI</strong>.</p>',
     conexion: [['VCC', '3,3 V'], ['GND', 'GND'], ['RST', 'D9'], ['SDA (SS)', 'D10'], ['MOSI', 'D11'], ['MISO', 'D12'], ['SCK', 'D13']],
