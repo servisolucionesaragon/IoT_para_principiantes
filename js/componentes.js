@@ -216,6 +216,7 @@ const RESISTENCIAS_HTML = `
 <p>Se mide en <strong>ohmios (Ω)</strong>. Abreviaturas comunes: 1 kΩ = 1 000 Ω; 1 MΩ = 1 000 000 Ω.</p>
 
 <h2>Código de colores</h2>
+<figure class="diagrama" style="max-width:720px"><img src="img/componentes/codigo-colores.png" alt="Tabla del código de colores de resistencias: dígitos, multiplicador y tolerancia" loading="lazy" style="width:100%;height:auto"><figcaption>Tabla de código de colores de resistencias (bandas de 4 y 5).</figcaption></figure>
 <p>Las bandas indican el valor. Se leen desde el lado donde están más juntas; la banda de tolerancia va al final (dorado o plateado). Las resistencias de 5 bandas tienen tres dígitos; las de 4 bandas, dos.</p>
 <div class="tabla-wrap"><table>
 <thead><tr><th>Color</th><th>1.er dígito</th><th>2.º dígito</th><th>3.er dígito</th><th>Multiplicador</th><th>Tolerancia</th></tr></thead>
