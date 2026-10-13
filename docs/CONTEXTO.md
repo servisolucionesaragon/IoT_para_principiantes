@@ -25,8 +25,9 @@ Plataforma web interactiva para personas que empiezan desde cero en IoT, Arduino
 6. **Kit Elegoo (`Espanol Elegoo`):** módulo 9 con seis lecciones. Pines contrastados con la tabla de cableado y el código del kit. Código propio: no se copian los programas del kit. El kit usa lógica distinta en los sensores de línea entre sus lecciones 2 y 5; se documenta.
 7. **Proyecto RFID (`Proyectos/Control de acceso RFID`):** aportado por el docente. La versión pública **no tiene credenciales**: WiFi y Firebase llevan marcadores. Se quitó el campo `documento` (dato personal de estudiantes). El configurador genera el código en el navegador.
 8. **Fotos reales:** se usan con la autorización del docente. Son de tiendas, de Google, de fabricantes y de Wikimedia (con licencias libres). 43 de 48 tienen la licencia **pendiente de confirmar**. Créditos en [CREDITOS_IMAGENES.md](CREDITOS_IMAGENES.md). Las ilustraciones SVG propias cubren los componentes sin foto.
-9. **Diseño:** tipografía Lexend (legibilidad), Tailwind por CDN, logo y favicon propios, texto a todo el ancho, visor de imágenes a pantalla completa y «Continuar donde quedaste».
-10. **Publicación:** Cloudflare está conectado a GitHub. Cada `push` a `main` se publica solo (ver sección 7).
+9. **Señales:** se agregó una lección de señales analógicas y digitales en el módulo 1 (gráficas SVG generadas en el navegador, muestreo, resolución del ADC y PWM).
+10. **Diseño:** tipografía Lexend (legibilidad), Tailwind por CDN, logo y favicon propios, texto a todo el ancho, visor de imágenes a pantalla completa y «Continuar donde quedaste».
+11. **Publicación:** Cloudflare está conectado a GitHub. Cada `push` a `main` se publica solo (ver sección 7).
 
 ## 4. Estado actual
 
@@ -65,7 +66,7 @@ node --check js/app.js
 
 - `js/app.js`: rutas por hash, render, cuestionarios, copiar código, progreso (`iot-progreso-v1`), última lección (`iot-ultima`), búsqueda, tema, visor de imágenes y configurador.
 - `js/contenido.js`: lecciones base (módulos 1 a 7), diagnóstico, retos, módulos y utilidades (`esc`, `cod`, `caja`, `tabla`, `figura`).
-- `js/contenido-elegoo.js`: módulo 9. `js/tinkercad.js`: módulo 8 (reemplaza `m8-tinkercad` e inserta los ejemplos).
+- `js/contenido-elegoo.js`: módulo 9. `js/tinkercad.js`: módulo 8 (reemplaza `m8-tinkercad` e inserta los ejemplos). `js/senales.js`: lección «Señales analógicas y digitales» (módulo 1, insertada después de «Electricidad básica»).
 - `js/componentes.js` y `js/componentes-nuevos.js`: fichas de sensores, categorías y ficha de resistencias. `js/resistencias-practica.js`: práctica interactiva.
 - `js/proyectos-extra.js`: 18 proyectos. El RFID agrega `accion`, `diagramas`, `web` y `configuracion`.
 - `js/diagramas.js` y `js/diagramas-rfid.js`: diagramas SVG. `js/imagenes.js`: ilustraciones. `js/imagenes-reales.js`: fotos con autor y licencia.

@@ -88,6 +88,7 @@ plataforma-iot/
 │   ├── app.js                  Enrutado (#/…), lecciones, progreso, búsqueda y visor
 │   ├── contenido.js            Lecciones base, diagnóstico, retos y módulos 1 a 7
 │   ├── contenido-elegoo.js     Módulo 9: coche con kit Elegoo
+│   ├── senales.js              Módulo 1: señales analógicas y digitales
 │   ├── tinkercad.js            Módulo 8: tutorial de Tinkercad y ejemplos
 │   ├── componentes.js          Fichas de sensores y dispositivos (primera parte)
 │   ├── componentes-nuevos.js   Fichas nuevas y categorías adicionales
