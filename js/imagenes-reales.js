@@ -154,5 +154,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar",
     "fuente": "",
     "titulo": "Módulo joystick analógico (imagen del docente)"
+  },
+  "gps": {
+    "src": "img/componentes/gps.png",
+    "autor": "Aportada por el docente (origen no indicado)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "",
+    "titulo": "Módulo GPS NEO-6M (imagen del docente)"
   }
 };
