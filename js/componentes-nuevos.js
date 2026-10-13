@@ -78,7 +78,7 @@ COMPONENTES.push(
     precauciones: ['Comprueba si tu módulo da HIGH o LOW con vibración (depende del módulo).']
   },
   {
-    id: 'sensor-hall', categoria: 'Movimiento y posición', nombre: 'Sensor de efecto Hall', voltaje: '5 V · salida digital',
+    id: 'sensor-hall', categoria: 'Movimiento y posición', nombre: 'Sensor de efecto Hall (KY-003)', voltaje: '5 V · salida digital',
     resumen: 'Detecta la presencia de un imán sin tocarlo.',
     funciona: '<p>Un chip detecta el campo magnético. Cuando un polo del imán se acerca, la salida cambia de estado. Sirve para contar vueltas de una rueda o detectar puertas.</p>',
     conexion: [['VCC', '5 V'], ['GND', 'GND'], ['DO', 'D2 con INPUT_PULLUP']],

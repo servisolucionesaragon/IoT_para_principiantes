@@ -217,5 +217,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar (foto de tienda)",
     "fuente": "https://www.mactronica.com.co/sensor-vibracion-sw-420",
     "titulo": "Sensor de vibración SW-420 (foto de la tienda Mactrónica)"
+  },
+  "sensor-hall": {
+    "src": "img/componentes/sensor-hall.jpg",
+    "autor": "Aportada por el docente (referencia KY-003)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "https://images.openai.com/static-rsc-4/",
+    "titulo": "Sensor de efecto Hall KY-003 (imagen del docente)"
   }
 };
