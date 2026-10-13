@@ -273,5 +273,19 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar (foto de tienda)",
     "fuente": "https://www.arcaelectronica.com/",
     "titulo": "ESP32 DevKit (foto de la tienda Arca Electrónica)"
+  },
+  "teclado-matricial": {
+    "src": "img/componentes/teclado-matricial.jpg",
+    "autor": "Imagen de Google Imágenes (teclado matricial 4×4)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "https://encrypted-tbn0.gstatic.com/",
+    "titulo": "Teclado matricial 4×4 (imagen del docente)"
+  },
+  "encoder": {
+    "src": "img/componentes/encoder.jpg",
+    "autor": "Electrosena Electrónica (encoder KY-040)",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://electrosenaelectronica.com/",
+    "titulo": "Encoder rotatorio KY-040 (foto de Electrosena)"
   }
 };
