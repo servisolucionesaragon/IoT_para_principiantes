@@ -315,5 +315,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar (foto de tienda)",
     "fuente": "https://m.media-amazon.com/",
     "titulo": "Sensor de humedad de suelo capacitivo (foto de Amazon)"
+  },
+  "sonido": {
+    "src": "img/componentes/sonido.jpg",
+    "autor": "Imagen de Google Imágenes (sensor de sonido)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "https://encrypted-tbn0.gstatic.com/",
+    "titulo": "Sensor de sonido (imagen del docente)"
   }
 };
