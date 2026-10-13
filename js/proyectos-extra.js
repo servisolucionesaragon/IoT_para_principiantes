@@ -667,5 +667,16 @@ PROYECTOS.forEach(p => { if (!p.sensores) p.sensores = []; });
       { k: 'D11', texto: 'MOSI del RC522' }, { k: 'D12', texto: 'MISO del RC522' },
       { k: 'D9', texto: 'RST del RC522' }, { k: 'D6', texto: 'Señal (S) del buzzer' },
       { k: '3V3', texto: 'VCC del RC522 (3,3 V, no 5 V)' }, { k: '5V', texto: 'VCC del buzzer' }, { k: 'GND', texto: 'GND común' }
-    ], 'Arduino UNO R4 WiFi: los pines SPI y los de este esquema coinciden con el Arduino UNO. Usa 3,3 V para el RC522.')}`;
+    ], 'Arduino UNO / UNO R4 WiFi: los pines SPI y los de este esquema coinciden con el Arduino UNO. Usa 3,3 V para el RC522.')}
+    <h3>Tabla de cableado (Arduino UNO)</h3>
+    ${tabla(['Componente', 'Pin del componente', 'Pin de Arduino UNO', 'Función'], [
+      ['RC522', 'SDA (SS)', 'D10', 'Selección del lector'],
+      ['RC522', 'SCK', 'D13', 'Reloj SPI'],
+      ['RC522', 'MOSI', 'D11', 'Datos hacia el lector'],
+      ['RC522', 'MISO', 'D12', 'Datos desde el lector'],
+      ['RC522', 'RST', 'D9', 'Reinicio'],
+      ['RC522', '3.3V / GND', '3V3 / GND', 'Alimentación (3,3 V, no 5 V)'],
+      ['Buzzer', 'S (señal)', 'D6', 'Pitidos de aviso'],
+      ['Buzzer', 'VCC / GND', '5V / GND', 'Alimentación']
+    ])}`;
 }

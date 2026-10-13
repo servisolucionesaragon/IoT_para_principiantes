@@ -289,7 +289,7 @@
       <div class="tabla-wrap"><table><thead><tr><th>Componente / pin</th><th>Conexión</th></tr></thead>
         <tbody>${p.conexiones.map(([a, b]) => `<tr><td>${esc(a)}</td><td>${esc(b)}</td></tr>`).join('')}</tbody></table></div>
       ${p.diagramas ? p.diagramas() : ''}
-      ${p.imagen ? `<figure class="diagrama"><img src="${esc(p.imagen.src)}" alt="${esc(p.imagen.alt)}" loading="lazy" style="width:100%;height:auto"><figcaption>Diagrama de conexión del proyecto.</figcaption></figure>` : ''}
+      ${p.imagen ? `<figure class="diagrama"><img src="${esc(p.imagen.src)}" alt="${esc(p.imagen.alt)}" loading="lazy" style="max-width:100%;height:auto"><figcaption>Diagrama de conexión del proyecto.</figcaption></figure>` : ''}
       ${p.web ? `<h2>Página web para visualizar los datos</h2>${p.web}` : ''}
       ${p.codigo
         ?`<div class="acciones"><button type="button" class="secundario" id="btn-lab-proyecto" data-proyecto="${p.id}">Abrir en el laboratorio</button></div>

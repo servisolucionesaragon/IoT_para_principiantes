@@ -200,8 +200,9 @@ th, td { border: 1px solid var(--borde); padding: 8px 10px; text-align: left; ve
 th { background: var(--primario-claro); }
 
 /* Diagramas */
-.diagrama { background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio); padding: 10px; margin: 14px 0; max-width: 100%; }
-.diagrama svg { width: 100%; height: auto; display: block; }
+.diagrama { max-width: 440px; margin: 14px auto; background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio); padding: 10px; margin: 14px 0; max-width: 100%; }
+figure.diagrama { max-width: 440px !important; width: 100%; margin: 14px auto; }
+.diagrama svg { width: 100%; max-width: 100%; height: auto; display: block; }
 .diagrama figcaption { font-size: .9rem; color: var(--texto-suave); margin-top: 6px; }
 
 /* Ejercicios / quiz */
