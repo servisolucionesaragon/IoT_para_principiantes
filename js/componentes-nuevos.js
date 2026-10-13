@@ -54,7 +54,7 @@ COMPONENTES.push(
     precauciones: ['Es una práctica: no sustituye un detector de incendios.', 'La luz solar intensa puede dar falsas alarmas.']
   },
   {
-    id: 'sensor-nivel-agua', categoria: 'Sensores ambientales', nombre: 'Sensor de nivel de agua', voltaje: '3,3–5 V',
+    id: 'sensor-nivel-agua', categoria: 'Sensores ambientales', nombre: 'Sensor de nivel de agua (WN328)', voltaje: '3,3–5 V',
     resumen: 'Pistas de contacto que dan una lectura según el agua que las cubre.',
     funciona: '<p>Varias pistas paralelas miden la resistencia del agua entre ellas. Más agua cubre más pistas y la lectura analógica sube.</p>',
     conexion: [['VCC (+)', '5 V'], ['GND (−)', 'GND'], ['S (señal)', 'A0']],

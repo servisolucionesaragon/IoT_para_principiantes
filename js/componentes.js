@@ -67,7 +67,7 @@ const COMPONENTES = [
     precauciones: ['Espera un minuto después de encenderlo para que se estabilice.', 'Evita corrientes de aire y superficies con cambios de temperatura cerca del sensor.']
   },
   {
-    id: 'ir-obstaculo', categoria: 'Movimiento y posición', nombre: 'Sensor infrarrojo de obstáculos', voltaje: '3,3–5 V',
+    id: 'ir-obstaculo', categoria: 'Movimiento y posición', nombre: 'Sensor infrarrojo de obstáculos (KY-032)', voltaje: '3,3–5 V',
     resumen: 'Indica si hay un objeto cercano delante de él.',
     funciona: '<p>Un emisor infrarrojo ilumina el frente y un receptor detecta el reflejo. Si hay un objeto cerca, la salida cambia de estado. En muchos módulos la salida es <strong>LOW cuando hay obstáculo</strong>; un potenciómetro ajusta la distancia.</p>',
     conexion: [['VCC', '5 V'], ['OUT', 'Pin digital (p. ej., D7)'], ['GND', 'GND']],

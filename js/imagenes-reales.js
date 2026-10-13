@@ -189,5 +189,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar",
     "fuente": "https://es.led-diode.com/development-board/ds18b20-temperature-sensor-module-kit.html",
     "titulo": "Kit DS18B20 con sonda e interfaz (imagen del docente)"
+  },
+  "ir-obstaculo": {
+    "src": "img/componentes/ir-obstaculo.jpg",
+    "autor": "Aportada por el docente (referencia KY-032)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "https://images.openai.com/static-rsc-4/",
+    "titulo": "Sensor infrarrojo de obstáculos KY-032 (imagen del docente)"
   }
 };
