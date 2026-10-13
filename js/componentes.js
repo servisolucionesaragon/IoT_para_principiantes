@@ -75,7 +75,7 @@ const COMPONENTES = [
     precauciones: ['La luz solar intensa puede confundirlo.', 'Los objetos oscuros y brillantes reflejan de forma distinta.']
   },
   {
-    id: 'tilt', categoria: 'Movimiento y posición', nombre: 'Sensor de inclinación (de bola)', voltaje: 'Interruptor digital',
+    id: 'tilt', categoria: 'Movimiento y posición', nombre: 'Sensor de inclinación de bola (SW-520D)', voltaje: 'Interruptor digital',
     resumen: 'Cambia de estado cuando se inclina más allá de un ángulo.',
     funciona: '<p>Tiene una bola metálica que cierra un contacto al inclinarse. Funciona como un pulsador: se conecta con <code>INPUT_PULLUP</code>. Sirve para detectar si algo se ha caído o volcado, pero no mide el ángulo.</p>',
     conexion: [['Una pata', 'Pin digital (p. ej., D2)'], ['Otra pata', 'GND']],

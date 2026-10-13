@@ -196,5 +196,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar",
     "fuente": "https://images.openai.com/static-rsc-4/",
     "titulo": "Sensor infrarrojo de obstáculos KY-032 (imagen del docente)"
+  },
+  "tilt": {
+    "src": "img/componentes/tilt.jpg",
+    "autor": "Aportada por el docente (referencia SW-520D)",
+    "licencia": "Pendiente de confirmar (miniatura de Google Imágenes)",
+    "fuente": "https://encrypted-tbn0.gstatic.com/",
+    "titulo": "Sensor de inclinación SW-520D (imagen del docente)"
   }
 };
