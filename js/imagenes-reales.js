@@ -238,5 +238,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar (foto de tienda)",
     "fuente": "https://sps.cdtechnologia.net/63-modulo-bluetooth-hc-06.html",
     "titulo": "Módulo Bluetooth HC-06 (foto de la tienda CD Tecnología)"
+  },
+  "oled": {
+    "src": "img/componentes/oled.jpg",
+    "autor": "Tienda Megatrónica (OLED 128x64)",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://megatronica.cc/producto/pantalla-oled-128x64-i2c-display-lcd-0-96-azul-vcc-gnd-arduino/",
+    "titulo": "Pantalla OLED 128×64 I²C (foto de la tienda Megatrónica)"
   }
 };

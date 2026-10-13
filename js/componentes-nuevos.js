@@ -118,7 +118,7 @@ COMPONENTES.push(
     precauciones: ['Puede activarse con la humedad: prueba en tu montaje.']
   },
   {
-    id: 'oled', categoria: 'Pantallas y señales', nombre: 'Pantalla OLED SSD1306 128×64', voltaje: '3,3–5 V · I²C (0x3C)',
+    id: 'oled', categoria: 'Pantallas y señales', nombre: 'Pantalla OLED SSD1306 128×64 (0,96" I²C)', voltaje: '3,3–5 V · I²C (0x3C)',
     resumen: 'Pantalla pequeña de alto contraste que muestra texto y gráficos.',
     funciona: '<p>Cada píxel emite luz propia, por eso el contraste es muy alto. Se controla por I²C. Usa las librerías Adafruit SSD1306 y Adafruit GFX.</p>',
     conexion: [['VCC / GND', '5 V o 3,3 V / GND'], ['SDA', 'A4 (UNO) / GPIO21 (ESP32)'], ['SCL', 'A5 (UNO) / GPIO22 (ESP32)']],
