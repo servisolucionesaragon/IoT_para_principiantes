@@ -25,9 +25,10 @@ Plataforma web interactiva para personas que empiezan desde cero en IoT, Arduino
 6. **Kit Elegoo (`Espanol Elegoo`):** módulo 9 con seis lecciones. Pines contrastados con la tabla de cableado y el código del kit. Código propio: no se copian los programas del kit. El kit usa lógica distinta en los sensores de línea entre sus lecciones 2 y 5; se documenta.
 7. **Proyecto RFID (`Proyectos/Control de acceso RFID`):** aportado por el docente. La versión pública **no tiene credenciales**: WiFi y Firebase llevan marcadores. Se quitó el campo `documento` (dato personal de estudiantes). El configurador genera el código en el navegador.
 8. **Fotos reales:** se usan con la autorización del docente. Son de tiendas, de Google, de fabricantes y de Wikimedia (con licencias libres). 43 de 48 tienen la licencia **pendiente de confirmar**. Créditos en [CREDITOS_IMAGENES.md](CREDITOS_IMAGENES.md). Las ilustraciones SVG propias cubren los componentes sin foto.
-9. **Señales:** se agregó una lección de señales analógicas y digitales en el módulo 1 (gráficas SVG generadas en el navegador, muestreo, resolución del ADC y PWM).
-10. **Diseño:** tipografía Lexend (legibilidad), Tailwind por CDN, logo y favicon propios, texto a todo el ancho, visor de imágenes a pantalla completa y «Continuar donde quedaste».
-11. **Publicación:** Cloudflare está conectado a GitHub. Cada `push` a `main` se publica solo (ver sección 7).
+9. **Descargas (2026-10-13):** el docente confirmó que puede redistribuir los libros y el material (Mundo Arduino, Robótica e IA, kit Elegoo y 50 retos). Se publicaron 41 archivos en `descargas/` y la página `#/descargas`. Cloudflare no sirve archivos de más de 25 MB: quedan pendientes el «Tomo 3» (61 MB) y «Inteligencia Artificial Educativa – Aprende IA Jugando» (31 MB). Decisión pendiente: dividirlos en partes o alojarlos fuera (R2 tiene plan gratuito; consultar antes).
+10. **Señales:** se agregó una lección de señales analógicas y digitales en el módulo 1 (gráficas SVG generadas en el navegador, muestreo, resolución del ADC y PWM).
+11. **Diseño:** tipografía Lexend (legibilidad), Tailwind por CDN, logo y favicon propios, texto a todo el ancho, visor de imágenes a pantalla completa y «Continuar donde quedaste».
+12. **Publicación:** Cloudflare está conectado a GitHub. Cada `push` a `main` se publica solo (ver sección 7).
 
 ## 4. Estado actual
 
@@ -118,7 +119,7 @@ cf deploy
 5. **Configurador:** probar el archivo `index.html` abierto desde la carpeta local (`file://`).
 6. **Laboratorio USB:** implementar validar, compilar y cargar (requiere una herramienta en WebAssembly).
 7. **Tinkercad:** confirmar en tinkercad.com las placas y componentes, y probar los seis ejemplos dentro de la herramienta. Ajustar nombres de botones si cambian.
-8. **Contenido:** proyectos de nivel 3 que faltan y código de la estación ESP32; revisar las citas a los libros con el OCR completo; diagrama del ESP32 con la numeración de la placa real.
+8. **Descargas pendientes:** dos PDF de más de 25 MB (ver decisión en la sección 3). Contenido: proyectos de nivel 3 que faltan y código de la estación ESP32; revisar las citas a los libros con el OCR completo; diagrama del ESP32 con la numeración de la placa real.
 9. **Publicación:** revisar por qué `publicar.mjs` no encuentra `cf` (opcional, ya no es necesario con el despliegue por Git).
 
 ## 9. Preferencias del usuario

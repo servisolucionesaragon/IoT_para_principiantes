@@ -20,6 +20,7 @@ Plataforma web educativa, en español, para aprender **electrónica, Arduino, ES
 | **Retos** | 5 retos con pistas progresivas |
 | **Recursos** | Resumen de los documentos originales y su uso |
 | **Herramientas** | Laboratorio USB, configurador RFID, buscador y progreso |
+| **Descargas** | 41 archivos complementarios (PDF, código y ejemplos) de Mundo Arduino, Robótica e IA, el kit Elegoo y los 50 retos, publicados con autorización del docente. Dos PDF de más de 25 MB están pendientes |
 
 ### Módulos
 
@@ -98,6 +99,8 @@ plataforma-iot/
 │   ├── diagramas-rfid.js       Diagrama de Arduino UNO para el proyecto RFID
 │   ├── imagenes.js             Ilustraciones SVG originales
 │   ├── imagenes-reales.js      Fotos reales con autor, licencia y fuente
+│   ├── descargas.js            Página de descargas
+│   ├── descargas-lista.js      Lista de archivos de descargas (generada)
 │   ├── configurador-rfid.js    Formulario que genera el código del proyecto RFID
 │   ├── plantillas-rfid.js      Plantillas del configurador, incluidas en el archivo
 │   └── laboratorio.js          Laboratorio USB (Web Serial)
@@ -107,6 +110,7 @@ plataforma-iot/
 │   └── proyectos/              Diagrama de conexión del proyecto RFID
 ├── plantillas/rfid/            Plantillas del proyecto RFID (sin credenciales)
 ├── proyectos/control-acceso-rfid/  Código ESP32 y Arduino R4, página web y documentación del proyecto RFID
+├── descargas/                  Material complementario para descargar (PDF y código)
 ├── publicar/                   Herramientas de publicación (respaldo; no se publica)
 └── docs/
     ├── CONTEXTO.md             Contexto, decisiones, historial y pendientes
@@ -160,6 +164,8 @@ Como respaldo, `cf deploy` desde la carpeta `publicar` (procedimiento en `docs/C
 - **Libros y kits del material:** no se publica su texto ni sus imágenes. Se usaron como fuente para elegir temas y verificar secuencias.
 
 Si una foto no puede publicarse, se retira: el componente vuelve a mostrar su ilustración.
+
+**Descargas:** el docente confirmó que tiene derecho a redistribuir los libros y el material del kit y de los retos. Se publican Mundo Arduino, Robótica e IA (salvo dos PDF de más de 25 MB), el kit Elegoo y los 50 retos.
 
 ---
 
