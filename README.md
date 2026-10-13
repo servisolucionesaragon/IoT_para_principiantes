@@ -1,96 +1,208 @@
-# IoT para Principiantes
+# IoT para principiantes
 
-Plataforma web educativa, en español, para aprender **electrónica, Arduino, ESP32, sensores e IoT desde cero**.
-Cada lección combina concepto, conexión, código para copiar, prueba y cuestionario con retroalimentación.
+Plataforma web educativa, en español, para aprender **electrónica, Arduino, ESP32, sensores, IoT y simulación desde cero**. Cada lección combina concepto, esquema de conexión, código para copiar, prueba y cuestionario con retroalimentación.
 
-**Sitio publicado (Cloudflare Workers, plan gratuito):** https://iot-para-principiantes.servisolucionesti.workers.dev/
+- **Sitio publicado:** https://iot-para-principiantes.servisolucionesti.workers.dev/
+- **Repositorio:** https://github.com/servisolucionesaragon/IoT_para_principiantes
 
-> Documentación de contexto para retomar el trabajo desde otra computadora: [docs/CONTEXTO.md](docs/CONTEXTO.md).
+> Contexto completo del proyecto (decisiones, historial y pendientes): [docs/CONTEXTO.md](docs/CONTEXTO.md).
 
-## Qué incluye
+---
+
+## 1. Qué incluye
 
 | Sección | Contenido |
 |---|---|
-| Módulos 1–8 | 17 lecciones: IoT, electricidad básica, seguridad, Arduino, ESP32, sensores (potenciómetro/LDR, DHT11, HC-SR04, servo SG90), montaje en protoboard, depuración con `millis()`, datos IoT (HTTP/MQTT) y Tinkercad |
-| Módulo 9 | 6 lecciones del coche inteligente con Arduino UNO (kit Elegoo): ensamblaje y pines, movimiento, Bluetooth HC-06, infrarrojos, evitar obstáculos y seguir línea |
-| Proyectos | 18 proyectos (niveles 1–4) con filtro por sensor, incluido el control de acceso RFID aportado por el docente. Antes: 4 proyectos con materiales, conexiones, código, pruebas, problemas frecuentes y mejoras (3 con código de ejemplo y 1 de diseño; ningún código está probado en hardware) |
-| Solución de problemas | 11 problemas frecuentes con causas, comprobaciones y solución |
-| Retos | 5 retos con pistas progresivas |
-| Sensores y dispositivos | 26 fichas con funcionamiento, conexión, código, precauciones e ilustración; fichas de resistencias (código de colores, cálculo, potencia, divisor) y protoboard |
-| Placas y diagramas | Diagramas gráficos de conexión de Arduino UNO y ESP32 con los pines de cada práctica resaltados |
-| Recursos | Resumen de los documentos originales y su uso ([docs/INVENTARIO.md](docs/INVENTARIO.md)) |
-| Laboratorio USB | Conexión por Web Serial, monitor serie, editor con ejemplos y copiar código. **Compilar y cargar no están implementados aún** |
-| Utilidades | Buscador, progreso guardado en el navegador, modo claro/oscuro, menú adaptable a móvil |
+| **Módulos 1 a 9** | 29 lecciones: IoT, electricidad, seguridad, Arduino, ESP32, sensores y actuadores, montaje, depuración, datos IoT, simulación con Tinkercad y el coche inteligente Elegoo |
+| **Sensores y dispositivos** | 49 fichas con funcionamiento, conexión, código y precauciones. Incluye resistencias (código de colores, ejemplos resueltos y práctica interactiva) y protoboard |
+| **Biblioteca de proyectos** | 18 proyectos en cuatro niveles, con filtro por sensor. Incluye el control de acceso RFID con Firebase |
+| **Solución de problemas** | 11 problemas frecuentes con causas, comprobaciones y solución |
+| **Retos** | 5 retos con pistas progresivas |
+| **Recursos** | Resumen de los documentos originales y su uso |
+| **Herramientas** | Laboratorio USB, configurador RFID, buscador y progreso |
 
-## Ver en local
+### Módulos
 
-No requiere instalación ni compilación (HTML, CSS y JavaScript sin dependencias).
+| Módulo | Tema | Lecciones |
+|---|---|---|
+| 1 | Electrónica e IoT | 3 |
+| 2 | Arduino desde cero | 4 |
+| 3 | ESP32 desde cero | 2 |
+| 4 | Sensores y actuadores | 4 |
+| 5 | Conexiones y montaje | 1 |
+| 6 | Depurar y programar mejor | 1 |
+| 7 | IoT: de la lectura a la nube | 1 |
+| 8 | Simulación con Tinkercad (tutorial y 6 ejemplos) | 7 |
+| 9 | Coche inteligente (kit Elegoo) | 6 |
 
-```bash
-cd plataforma-iot
-python -m http.server 5741
-```
+---
 
-Abre http://localhost:5741 en el navegador.
+## 2. Cómo se usa
 
-## Estructura
+1. Entra al sitio y empieza por el **Módulo 1**, o usa **Continuar donde quedaste**, que recuerda la última lección visitada.
+2. En cada lección: lee el concepto, mira el diagrama, copia el código con **Copiar código** y responde el cuestionario.
+3. Marca la lección como **completada**. El progreso se guarda en tu navegador.
+4. Usa el **buscador** de la cabecera para encontrar un sensor, un error o un proyecto.
+5. Pulsa cualquier imagen para verla **a pantalla completa**. Se cierra con un clic o con Esc.
+
+El progreso y la última lección se guardan solo en el navegador. Nada se envía a un servidor.
+
+---
+
+## 3. Herramientas
+
+### 3.1 Laboratorio USB
+Conecta una placa por USB desde Chrome o Edge de escritorio (con `https://` o `localhost`). Permite abrir el puerto, leer y enviar texto por el monitor serie, y editar código con ejemplos. **Compilar y cargar el programa todavía no están implementados**: carga los programas con el Arduino IDE.
+
+### 3.2 Configurador del proyecto RFID
+En la ficha **Control de acceso escolar con RFID** hay un formulario que genera:
+- el código del **ESP32** o del **Arduino UNO R4 WiFi** con tu red WiFi, tu clave y tu URL de Firebase;
+- la página `index.html` configurada con tu URL.
+
+Todo se genera en tu navegador. Los datos no se envían ni se guardan en la plataforma. El archivo descargado sí contiene tu clave WiFi: no lo subas a internet.
+
+### 3.3 Visor de imágenes
+Al hacer clic en una imagen se abre a pantalla completa. Se cierra con un clic o con la tecla Esc.
+
+---
+
+## 4. Tecnología
+
+- **Sitio estático:** HTML, CSS y JavaScript. No hay servidor propio ni base de datos.
+- **Estilos:** Tailwind CSS (desde su CDN oficial) y `css/estilos.css`. Los colores son variables, así que el modo claro y el oscuro siguen al sistema o al botón **Modo**.
+- **Tipografía:** Lexend, desde Google Fonts.
+- **Publicación:** Cloudflare Workers con archivos estáticos (plan gratuito).
+- **Sin compilación:** los archivos se editan y se publican tal cual.
+
+---
+
+## 5. Estructura de archivos
 
 ```
 plataforma-iot/
-├── index.html          Página base (cabecera, menú, buscador)
-├── css/estilos.css     Estilos; modo claro/oscuro con variables CSS
-├── js/contenido.js     Lecciones, proyectos, diagnóstico, retos y diagramas SVG
-├── js/app.js           Enrutado (#/…), cuestionarios, copiar código, progreso, búsqueda
-├── js/contenido-elegoo.js Módulo 9 (kit Elegoo Smart Car)
-├── js/laboratorio.js   Laboratorio USB (Web Serial)
-├── docs/CONTEXTO.md    Decisiones, estado y pendientes (para retomar el trabajo)
-├── docs/INVENTARIO.md  Índice de los 64 documentos originales y su uso
-└── .claude/launch.json Configuración del servidor de vista previa
+├── index.html                  Página base: cabecera, menú, buscador y scripts
+├── README.md                   Esta documentación
+├── css/
+│   └── estilos.css             Estilos propios: tipografía, diseño y visor de imágenes
+├── js/
+│   ├── app.js                  Enrutado (#/…), lecciones, progreso, búsqueda y visor
+│   ├── contenido.js            Lecciones base, diagnóstico, retos y módulos 1 a 7
+│   ├── contenido-elegoo.js     Módulo 9: coche con kit Elegoo
+│   ├── tinkercad.js            Módulo 8: tutorial de Tinkercad y ejemplos
+│   ├── componentes.js          Fichas de sensores y dispositivos (primera parte)
+│   ├── componentes-nuevos.js   Fichas nuevas y categorías adicionales
+│   ├── resistencias-practica.js Práctica interactiva del código de colores
+│   ├── proyectos-extra.js      Biblioteca de proyectos (18)
+│   ├── diagramas.js            Diagramas SVG de Arduino UNO y ESP32, y protoboard
+│   ├── diagramas-rfid.js       Diagrama de Arduino UNO para el proyecto RFID
+│   ├── imagenes.js             Ilustraciones SVG originales
+│   ├── imagenes-reales.js      Fotos reales con autor, licencia y fuente
+│   ├── configurador-rfid.js    Formulario que genera el código del proyecto RFID
+│   ├── plantillas-rfid.js      Plantillas del configurador, incluidas en el archivo
+│   └── laboratorio.js          Laboratorio USB (Web Serial)
+├── img/
+│   ├── logo.svg, logo-mark.svg, favicon.svg, favicon-32.png, icon-192.png, apple-touch-icon.png
+│   ├── componentes/            Fotos y gráficos de componentes
+│   └── proyectos/              Diagrama de conexión del proyecto RFID
+├── plantillas/rfid/            Plantillas del proyecto RFID (sin credenciales)
+├── proyectos/control-acceso-rfid/  Código ESP32 y Arduino R4, página web y documentación del proyecto RFID
+├── publicar/                   Herramientas de publicación (respaldo; no se publica)
+└── docs/
+    ├── CONTEXTO.md             Contexto, decisiones, historial y pendientes
+    ├── INVENTARIO.md           Documentos originales y su uso
+    └── CREDITOS_IMAGENES.md    Autor, licencia y fuente de cada foto
 ```
 
-Rutas internas: `#/inicio`, `#/leccion/<id>`, `#/modulo/<id>`, `#/proyectos`, `#/proyecto/<id>`, `#/diagnostico`, `#/retos`, `#/recursos`, `#/laboratorio`.
+---
 
-## Estado de verificación
+## 6. Cómo agregar contenido
 
-Lo que se comprobó y lo que **no**:
+- **Lección:** agrega un objeto con `id`, `modulo`, `titulo`, `cuerpo` (HTML), `quiz` y `fuentes`, en el archivo de su módulo. El menú, el buscador y la navegación anterior y siguiente se generan solos.
+- **Ficha de componente:** agrega un objeto a `COMPONENTES` con `id`, `categoria`, `nombre`, `funciona`, `conexion`, `codigo` y `precauciones`. Para mostrar una foto, regístrala en `imagenes-reales.js` con su autor y licencia.
+- **Proyecto:** agrega un objeto a `PROYECTOS` con `id`, `nivel`, `sensores`, `componentes`, `conexiones`, `codigo`, `pruebas`, `problemas` y `mejoras`.
+- **Cambios visibles:** sube el número de versión de los archivos en `index.html` (`?v=...`) para que el navegador no use una copia guardada.
+
+Comprobación de sintaxis antes de subir un cambio:
+
+```bash
+node --check js/app.js
+```
+
+---
+
+## 7. Publicación
+
+Cloudflare está conectado a este repositorio: **cada `push` a la rama `main` se publica solo**. Flujo recomendado:
+
+```bash
+git add -A
+```
+
+```bash
+git commit -m "descripción del cambio"
+```
+
+```bash
+git push
+```
+
+Espera un minuto y verifica el cambio en el sitio.
+
+Como respaldo, `cf deploy` desde la carpeta `publicar` (procedimiento en `docs/CONTEXTO.md`). El script `publicar/publicar.mjs` falla con código 127 en esta máquina; no hace falta mientras funcione el despliegue por Git.
+
+---
+
+## 8. Imágenes y derechos
+
+- **Ilustraciones SVG:** dibujos propios.
+- **Fotos reales (48):** 43 tienen su licencia pendiente de confirmar. Provienen de tiendas, de Google o de fabricantes, y se usan con la autorización del docente. Cada una muestra su autor y fuente al pie. Lista completa en [docs/CREDITOS_IMAGENES.md](docs/CREDITOS_IMAGENES.md).
+- **Libros y kits del material:** no se publica su texto ni sus imágenes. Se usaron como fuente para elegir temas y verificar secuencias.
+
+Si una foto no puede publicarse, se retira: el componente vuelve a mostrar su ilustración.
+
+---
+
+## 9. Privacidad y seguridad
+
+- La plataforma no pide datos personales ni guarda registros de quien la usa; solo el progreso local en el navegador.
+- El proyecto RFID se publica **sin credenciales**: WiFi y Firebase llevan marcadores. El configurador genera el código en el navegador.
+- No se incluyen datos de estudiantes. Las reglas de Firebase del ejemplo son abiertas: deben protegerse antes de usar datos reales.
+
+---
+
+## 10. Estado de verificación
 
 | Elemento | Estado |
 |---|---|
-| Sintaxis de los scripts | Comprobada (`node --check`) |
-| Consistencia de datos (ids únicos, respuestas válidas, módulos con contenido) | Comprobada con un script |
-| Archivos servidos correctamente | Comprobado (HTTP 200) |
-| Comportamiento en el navegador (menú, cuestionarios, copiar, búsqueda) | Pendiente de prueba completa en el navegador de vista previa |
-| Ejemplos de código en **hardware real** | **No probados** |
-| Laboratorio USB con una placa conectada | **No probado** (requiere hardware) |
-| Compatibilidad de Tinkercad con ESP32 | **No verificado** en tinkercad.com. Fuentes secundarias indican que no lo incluye; confírmalo |
+| Sintaxis de todos los scripts | Comprobada con `node --check` |
+| Datos (ids únicos, respuestas válidas, módulos con contenido) | Comprobados con script |
+| Rutas, menú, lecciones, fichas y proyectos en el navegador | Comprobados sin errores de consola |
+| Diseño y tipografía | Comprobados en escritorio (navegador de vista previa) |
+| Diseño en teléfono | **Pendiente** |
+| Configurador RFID abierto desde carpeta local (`file://`) | **Pendiente** |
+| Código de Arduino y ESP32 en hardware real | **No probado** |
+| Laboratorio USB con una placa conectada | **No probado** |
+| Ejemplos de Tinkercad dentro de Tinkercad | **No probados** |
+| Compatibilidad de Tinkercad con ESP32 | **No confirmada** en tinkercad.com |
 
-Los fragmentos marcados como ilustrativos (por ejemplo, el envío HTTP del Módulo 7) no son ejecutables tal cual.
+---
 
-## Laboratorio USB: alcance actual
+## 11. Pendientes
 
-- **Funciona (en diseño):** solicitar permiso al usuario, abrir el puerto, leer y enviar texto, desconexión segura, editor con ejemplos.
-- **Pendiente:** validar, compilar y cargar el programa a la placa. Requiere un compilador (por ejemplo, Arduino CLI compilado a WebAssembly) y un cargador compatible con Arduino UNO y ESP32. Mientras tanto, carga los programas con el Arduino IDE.
-- Compatibilidad: Chrome o Edge de escritorio, con `https://` o `localhost`. Firefox y Safari no soportan Web Serial.
-- El navegador no informa el modelo de la placa. Solo se muestra una pista a partir del identificador USB (por ejemplo, 0x1A86 = CH340), que no es una identificación definitiva.
+1. Confirmar la licencia de las 43 fotos de tiendas y fuentes externas.
+2. Probar el código RFID y los ejemplos de Arduino y ESP32 en placas reales.
+3. Proteger la base de Firebase del proyecto RFID antes de usar datos reales de estudiantes.
+4. Cambiar la clave WiFi que aparece en los archivos locales del proyecto RFID.
+5. Revisar el diseño en teléfono y el menú lateral en pantallas pequeñas.
+6. Implementar compilar y cargar en el laboratorio USB (requiere una herramienta en WebAssembly).
+7. Confirmar en tinkercad.com las placas y componentes disponibles, y ajustar el módulo 8.
+8. Agregar los proyectos de nivel 3 que faltan y el código de la estación ESP32.
 
-## Contenido y derechos
+---
 
-- Las explicaciones son **originales**. Los documentos del material (libros con derechos reservados) se usaron para elegir temas, verificar secuencias y citar la fuente. No se copió su texto.
-- No se publican los PDF ni el instalador de PictoBlox.
-- Este repositorio no contiene credenciales. Las plantillas de Wi-Fi usan marcadores (`NOMBRE_DE_TU_RED`); no añadas claves reales al código compartido.
+## 12. Documentación relacionada
 
-## Pendiente
-
-1. Probar los ejemplos de código en hardware real (Arduino UNO y ESP32) y registrar el resultado.
-2. Completar el laboratorio: validar, compilar y cargar (decidir la herramienta de compilación).
-3. Verificar la compatibilidad de Tinkercad (placas y componentes) en tinkercad.com y actualizar la lección 8.
-4. Añadir los proyectos de nivel 3 y el código del proyecto de diseño (estación ESP32).
-5. Revisar la cita del libro 5 de «Mundo Arduino» (OCR completo; el pulsador aparece ahí).
-6. Probar el coche Elegoo en hardware: sentidos de los motores, lectura de los sensores de línea (HIGH/LOW), códigos del control IR y calibración del servo.
-
-## Publicación
-
-- GitHub: https://github.com/servisolucionesaragon/IoT_para_principiantes
-- Cloudflare Workers (sitio estático, plan gratuito): https://iot-para-principiantes.servisolucionesti.workers.dev/
-
-Para actualizar el sitio después de un cambio, ver la sección de publicación en [docs/CONTEXTO.md](docs/CONTEXTO.md).
+- [docs/CONTEXTO.md](docs/CONTEXTO.md): contexto, decisiones, historial y estado.
+- [docs/INVENTARIO.md](docs/INVENTARIO.md): los documentos originales y el uso que se les dio.
+- [docs/CREDITOS_IMAGENES.md](docs/CREDITOS_IMAGENES.md): autor, licencia y fuente de cada foto.
+- [proyectos/control-acceso-rfid/README.md](proyectos/control-acceso-rfid/README.md): documentación del proyecto RFID (conexiones, Firebase y puesta en marcha).

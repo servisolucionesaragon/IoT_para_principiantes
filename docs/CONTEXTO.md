@@ -1,123 +1,136 @@
-# Contexto del proyecto · IoT para Principiantes
+# Contexto del proyecto · IoT para principiantes
 
-Documento para retomar el trabajo desde otra computadora o en una sesión nueva. Léelo antes de cambiar nada.
+Documento para retomar el trabajo desde otra computadora o en una sesión nueva. Léelo antes de cambiar nada. Se actualizó el 2026-10-13.
 
-## Identidad
+## 1. Identidad
 
-- **Nombre:** IoT para Principiantes
-- **Carpeta local:** `Z:\Proyectos (F) PC\Material  IoT\plataforma-iot` (la carpeta padre `Material  IoT` contiene los documentos originales; **no** se suben al repositorio)
-- **Repositorio:** https://github.com/servisolucionesaragon/IoT_para_principiantes
-- **Sitio (Cloudflare Workers, plan gratuito):** https://iot-para-principiantes.servisolucionesti.workers.dev/
+- **Nombre:** IoT para principiantes (indicado por el usuario).
+- **Carpeta local:** `Z:\Proyectos (F) PC\Material  IoT\plataforma-iot`. La carpeta padre `Material  IoT` contiene los documentos originales y **no** se publica.
+- **Repositorio:** https://github.com/servisolucionesaragon/IoT_para_principiantes (rama `main`).
+- **Sitio:** https://iot-para-principiantes.servisolucionesti.workers.dev/ (Cloudflare Workers, plan gratuito, cuenta Servisolucionesti).
 - **Idioma:** español en toda la interfaz y el contenido.
+- **Documentación de referencia:** [README.md](../README.md) (guía del sitio) y [proyectos/control-acceso-rfid/README.md](../proyectos/control-acceso-rfid/README.md) (proyecto RFID).
 
-## Encargo original (resumen)
+## 2. Encargo original
 
-Plataforma web interactiva para personas que empiezan desde cero en IoT, Arduino, ESP32, sensores y simulación. Debe convertir el material en una guía práctica (concepto → conexión → código → prueba), con laboratorio USB para programar desde el navegador cuando sea viable.
+Plataforma web interactiva para personas que empiezan desde cero en IoT, Arduino, ESP32, sensores y simulación. Convierte el material en una guía práctica (concepto → conexión → código → prueba), con un laboratorio USB para programar desde el navegador cuando sea viable, y tutorial de simulación con Tinkercad.
 
-## Decisiones tomadas (y por qué)
+## 3. Decisiones tomadas (y por qué)
 
-1. **Sitio estático, sin build ni framework** (HTML/CSS/JS). Motivo: no hay backend, el alcance cabe en archivos simples, y es lo que mejor se publica en Workers gratis.
-2. **Contenido original.** Los libros del material tienen derechos reservados («uso personal… prohibida su copia, distribución»). La plataforma se publica en internet, así que se usan solo para elegir temas y citar fuentes. Ningún párrafo se copia.
-3. **Material y fuentes reales:** se revisaron los 64 archivos (texto con PyMuPDF; páginas-imagen con OCR RapidOCR). Ver [INVENTARIO.md](INVENTARIO.md).
-4. **Hallazgo importante:** el material trata sobre todo de **Arduino UNO con PictoBlox** y robótica infantil. **ESP32 aparece en una sola mención** y **Tinkercad en ninguna**. Por eso la lección de ESP32 se basa en documentación técnica pública y está marcada para verificar.
-5. **Tinkercad:** según fuentes secundarias (no oficiales), no incluye ESP32. No se pudo confirmar en tinkercad.com. La lección 8 lo marca como pendiente de verificación.
-6. **Laboratorio USB, versión 1:** Web Serial (conexión, monitor, editor, envío de texto). **Compilar y cargar quedan pendientes**: requieren un compilador y cargador en el navegador, que no se integró.
-7. **Nombres e identidad:** el proyecto se llama «IoT para Principiantes» (indicación del usuario).
-8. **Material Elegoo (2026-10-12):** el usuario añadió `Espanol Elegoo` (kit Smart Car con Arduino UNO). Se creó el Módulo 9 con 6 lecciones. Pines verificados contra la tabla de cableado y el código del kit. Código propio: no se copian los programas del kit. El kit usa lógica de sensores de línea distinta entre programas (lección 5 vs. lección 2); se documenta.
-9. **Publicación:** repositorio y URL de Cloudflare indicados por el usuario. Sitio estático en Workers gratis (sin costo). Cualquier servicio de pago debe consultarse antes.
+1. **Sitio estático sin compilación** (HTML, CSS y JavaScript). No hay backend y así se publica gratis en Workers.
+2. **Contenido original.** Los libros del material tienen derechos reservados. Se usaron para elegir temas y verificar secuencias; no se copió su texto ni se publican sus PDF.
+3. **Material revisado:** 64 archivos de `Material  IoT` (texto con PyMuPDF; páginas-imagen con OCR RapidOCR). Ver [docs/INVENTARIO.md](INVENTARIO.md).
+4. **ESP32 y Tinkercad casi no aparecen en el material.** Las lecciones de ESP32 se basan en documentación pública y se marcan para verificar. Tinkercad: según fuentes secundarias no admite ESP32; no confirmado en tinkercad.com.
+5. **Laboratorio USB (v1):** Web Serial (conexión, monitor, editor). Compilar y cargar quedan pendientes.
+6. **Kit Elegoo (`Espanol Elegoo`):** módulo 9 con seis lecciones. Pines contrastados con la tabla de cableado y el código del kit. Código propio: no se copian los programas del kit. El kit usa lógica distinta en los sensores de línea entre sus lecciones 2 y 5; se documenta.
+7. **Proyecto RFID (`Proyectos/Control de acceso RFID`):** aportado por el docente. La versión pública **no tiene credenciales**: WiFi y Firebase llevan marcadores. Se quitó el campo `documento` (dato personal de estudiantes). El configurador genera el código en el navegador.
+8. **Fotos reales:** se usan con la autorización del docente. Son de tiendas, de Google, de fabricantes y de Wikimedia (con licencias libres). 43 de 48 tienen la licencia **pendiente de confirmar**. Créditos en [CREDITOS_IMAGENES.md](CREDITOS_IMAGENES.md). Las ilustraciones SVG propias cubren los componentes sin foto.
+9. **Diseño:** tipografía Lexend (legibilidad), Tailwind por CDN, logo y favicon propios, texto a todo el ancho, visor de imágenes a pantalla completa y «Continuar donde quedaste».
+10. **Publicación:** Cloudflare está conectado a GitHub. Cada `push` a `main` se publica solo (ver sección 7).
 
-## Estado al cierre de esta sesión
+## 4. Estado actual
 
 | Parte | Estado |
 |---|---|
-| Lecciones (23) en 9 módulos (incluye 6 del kit Elegoo) | Escritas. Datos verificados con script (ids únicos, respuestas válidas) |
-| Cuestionarios por lección | Incluidos (1–2 preguntas cada uno) |
-| Proyectos (4) | 3 con código de ejemplo, 1 de diseño (estación ESP32, sin código) |
-| Diagnóstico (11) y retos (5) | Incluidos |
-| Buscador, progreso, modo oscuro, móvil | Implementados; **prueba completa en navegador pendiente** |
-| Laboratorio USB (v1) | Implementado sin probar con hardware |
-| Código de ejemplo en hardware (UNO, ESP32, coche Elegoo) | **No probado** |
-| Documentación | README.md, docs/INVENTARIO.md, docs/CONTEXTO.md |
+| Lecciones | 29 en 9 módulos (módulo 8: tutorial de Tinkercad y 6 ejemplos; módulo 9: coche Elegoo) |
+| Sensores y dispositivos | 49 fichas, 48 con foto real (una sección para resistencias), con práctica interactiva y ejemplos resueltos de resistencias |
+| Proyectos | 18 proyectos en niveles 1 a 4, con filtro por sensor. El RFID incluye diagramas, configurador, sección de web y de buzzer |
+| Diagnóstico y retos | 11 problemas y 5 retos |
+| Herramientas | Laboratorio USB (sin compilar ni cargar), configurador RFID, buscador, visor de imágenes, progreso local |
+| Publicación | Automática por Git (verificada); respaldo con `cf deploy` |
+| Verificado | Sintaxis, datos, rutas y consola en el navegador de vista previa |
+| **No verificado** | Diseño en teléfono; configurador abierto desde `file://`; código en hardware real; laboratorio USB con placa; ejemplos de Tinkercad dentro de Tinkercad; compatibilidad de Tinkercad con ESP32 |
 
-## Cómo continuar
+## 5. Cómo continuar
+
+Probar el sitio en local:
 
 ```bash
 cd "Z:\Proyectos (F) PC\Material  IoT\plataforma-iot"
+```
+
+```bash
 python -m http.server 5741
 ```
 
-Abre http://localhost:5741. Si el navegador de la vista previa no abre el puerto, usa el navegador del sistema.
+Abre http://localhost:5741. Si el navegador de la vista previa no abre ese puerto, usa el navegador del sistema.
 
-Comprobaciones rápidas antes de publicar:
+Comprobación de sintaxis antes de subir cambios:
 
 ```bash
-node --check js/contenido.js && node --check js/app.js && node --check js/laboratorio.js
+node --check js/app.js
 ```
 
-## Estructura del código
+## 6. Estructura del código
 
-- `js/contenido.js`: datos (LECCIONES, PROYECTOS, DIAGNOSTICO, RETOS, MODULOS) y diagramas SVG. Las lecciones son HTML escrito a mano. Cada `cod()` escapa el código.
-- `js/app.js`: rutas por hash, render, cuestionarios, copiar código, progreso (`localStorage` con clave `iot-progreso-v1`), búsqueda, tema.
-- `js/contenido-elegoo.js`: Módulo 9 (se carga después de contenido.js; agrega MODULOS y LECCIONES).
-- `js/laboratorio.js`: Web Serial. Expone `window.montarLaboratorio`.
-- Para añadir una lección: agregar un objeto a `LECCIONES` con `id`, `modulo`, `titulo`, `cuerpo`, `quiz`, `fuentes`. El menú y el buscador se generan solos.
+- `js/app.js`: rutas por hash, render, cuestionarios, copiar código, progreso (`iot-progreso-v1`), última lección (`iot-ultima`), búsqueda, tema, visor de imágenes y configurador.
+- `js/contenido.js`: lecciones base (módulos 1 a 7), diagnóstico, retos, módulos y utilidades (`esc`, `cod`, `caja`, `tabla`, `figura`).
+- `js/contenido-elegoo.js`: módulo 9. `js/tinkercad.js`: módulo 8 (reemplaza `m8-tinkercad` e inserta los ejemplos).
+- `js/componentes.js` y `js/componentes-nuevos.js`: fichas de sensores, categorías y ficha de resistencias. `js/resistencias-practica.js`: práctica interactiva.
+- `js/proyectos-extra.js`: 18 proyectos. El RFID agrega `accion`, `diagramas`, `web` y `configuracion`.
+- `js/diagramas.js` y `js/diagramas-rfid.js`: diagramas SVG. `js/imagenes.js`: ilustraciones. `js/imagenes-reales.js`: fotos con autor y licencia.
+- `js/configurador-rfid.js` y `js/plantillas-rfid.js`: configurador del proyecto RFID (plantillas incluidas en el archivo para funcionar también desde `file://`).
+- `js/laboratorio.js`: laboratorio USB (Web Serial).
+- `plantillas/rfid/`: plantillas públicas (sin credenciales) que usa el configurador en el sitio.
+- `proyectos/control-acceso-rfid/`: código ESP32 y Arduino R4, página web y README del proyecto RFID (copia pública con marcadores).
 
-## Pendientes (en orden sugerido)
+Para agregar una lección: objeto en `LECCIONES` con `id`, `modulo`, `titulo`, `cuerpo`, `quiz` y `fuentes`. Para una foto: registrarla en `js/imagenes-reales.js` con autor, licencia y fuente.
 
-1. Probar el sitio en el navegador (menú, cuestionarios, copiar, búsqueda, modo oscuro, móvil).
-2. Probar los ejemplos en **Arduino UNO** real y luego en **ESP32** real. Anotar resultados en la lección correspondiente.
-3. Verificar Tinkercad en tinkercad.com (placas y componentes disponibles). Actualizar la lección 8.
-4. Laboratorio: decidir herramienta de compilación (p. ej., Arduino CLI en WebAssembly) y de carga para UNO/ESP32. Antes, documentar navegadores y sistemas probados.
-5. Proyectos de nivel 3 y código del proyecto de diseño (estación ESP32).
-6. Revisar citas a los libros con el texto OCR completo.
+**Cambios visibles en el navegador:** subir el número de versión (`?v=...`) de los scripts y el CSS en `index.html`. Sin eso el navegador puede seguir usando la versión anterior.
 
-## Publicación
+## 7. Publicación
 
-- **GitHub:** repositorio `servisolucionesaragon/IoT_para_principiantes`. Sube solo la carpeta `plataforma-iot` (nunca los PDF ni el instalador). Pendiente de confirmar que el push se completó (ver nota de la sesión).
-- **Cloudflare:** Workers con activos estáticos, nombre `iot-para-principiantes`, cuenta de Servisolucionesti. Usar la CLI `cf` (no hay `wrangler.toml` en el proyecto; ver CLAUDE.md global). Plan gratuito.
-- Después de cada cambio: actualizar la documentación (README y este archivo) y volver a publicar.
+**Flujo normal (automático):**
 
-## Notas del entorno
+```bash
+git add -A
+```
 
-- OCR instalado localmente: `rapidocr_onnxruntime` (pip). Solo para leer el material, no forma parte del sitio.
-- Los archivos de trabajo temporales (textos extraídos, imágenes) están en el directorio de sesión y **no** están en este proyecto. Si se necesitan de nuevo, se regeneran con PyMuPDF y RapidOCR.
-- El panel de vista previa del escritorio lanzó otro proyecto (LJV) en el puerto 5731. Para este sitio usa el comando de arriba.
+```bash
+git commit -m "descripción del cambio"
+```
 
-## Preferencias del usuario (para trabajar con él)
+```bash
+git push
+```
 
-- Responder y documentar en español.
-- Quiere la documentación dentro de la carpeta del proyecto, para retomarla desde otra computadora.
-- Antes de gastar o borrar algo en Cloudflare, consultar. Usar solo plan gratuito.
-- Advertencias de seguridad: no exponer credenciales; no afirmar que algo funciona en hardware sin probarlo.
+Cloudflare publica el cambio en un minuto aproximadamente. Verificado: los builds de los últimos commits terminaron con éxito y el sitio en vivo tiene el último cambio.
 
-## Actualización 2026-10-12 (segunda parte)
+**Respaldo (`cf deploy`):** `node publicar/publicar.mjs` falla con código 127 en esta máquina (el proceso de Node no encuentra `cf`). Procedimiento que sí funciona, desde la carpeta `publicar`:
 
-- **Sensores y dispositivos:** 26 fichas (resistencias, protoboard, LED, pulsador, potenciómetro, LDR, buzzer, PIR, IR de obstáculos, inclinación, MPU-6050, MQ-2, MQ-135, LM35, DHT11, humedad de suelo, sonido, joystick, RFID RC522, GPS NEO-6M, relé, servo, motor DC, LCD I²C, HC-06, HC-SR04). Cada una con funcionamiento, conexión, código y precauciones.
-- **Resistencias:** código de colores, LED, potencia, serie/paralelo, divisor y pull-up.
-- **Protoboard:** qué es, cómo se unen los orificios, uso paso a paso, errores frecuentes (ficha y lección 5).
-- **Diagramas de conexión gráficos:** Arduino UNO y ESP32 DevKit con los pines de cada práctica resaltados (`js/diagramas.js`). Pinout del ESP32 simplificado: confirma la numeración de tu placa.
-- **Imágenes:** ilustraciones SVG **originales** (`js/imagenes.js`). No se usan fotos de los kits ni de los libros: publicarlas en un sitio público redistribuiría material con derechos de autor. Propuesta pendiente: si quieres fotos reales, hay que decidir con el docente qué material puede publicarse.
-- **Biblioteca de proyectos:** 18 proyectos (niveles 1–4), filtro por sensor, imagen de diagrama en el proyecto RFID.
-- **Proyecto RFID de la carpeta `Proyectos/Control de acceso RFID`** (`acceso-rfid-nube`): aportado por el docente. Se publicó la versión ESP32 **sin credenciales**: el original tenía la contraseña del WiFi, el host real de Firebase y guardaba el documento de identidad de estudiantes. Esos datos no deben publicarse. Se quitó también el campo `documento`. Pendiente: que el docente revise las reglas de su base de datos (si son públicas, cualquiera puede leer o escribir).
-- **Material Elegoo:** Módulo 9 (6 lecciones del coche inteligente).
-- **Publicación:** `publicar/publicar.mjs` (Worker `iot-para-principiantes`, plan gratuito). Ver README.
-- **Pendientes nuevos:** probar los diagramas y el filtro en el navegador de escritorio; revisar que el navegador no conserve versiones antiguas (se añadió `?v=` a los recursos); decidir si se usan fotos reales.
+```bash
+rm -rf sitio && mkdir sitio && cp -r ../index.html ../css ../js ../img ../plantillas sitio/
+```
 
-### Publicación: cómo se hizo (2026-10-12)
+```bash
+cf deploy
+```
 
-- URL en vivo: https://iot-para-principiantes.servisolucionesti.workers.dev/ (verificada: HTTP 200 en index, scripts, estilos e imagen).
-- `node publicar/publicar.mjs` **falla con código 127** en esta máquina: el `spawnSync` de Node no encuentra `cf`. Con el mismo comando desde la terminal, `cf deploy` funciona. Mientras no se corrija, publica así:
-  ```
-  cd publicar
-  rm -rf sitio && mkdir sitio && cp -r ../index.html ../css ../js ../img sitio/
-  cf deploy
-  ```
-- `publicar.mjs` ya incluye `img/` en la lista de archivos a publicar (antes faltaba y la imagen del proyecto RFID daba 404).
+**Verificación de seguridad:** las carpetas internas (`README.md`, `publicar/`, `proyectos/`, `docs/`) responden 404 en el sitio. `plantillas/rfid/` se publica a propósito, porque el configurador la necesita, y ya no contiene credenciales.
 
-### Tailwind, fotos reales y componentes nuevos (2026-10-12, tercera parte)
+## 8. Pendientes
 
-- **Tailwind CSS** por CDN oficial (`cdn.tailwindcss.com`) con la configuración en `index.html`; los colores siguen las variables de `css/estilos.css`.
-- **Componentes:** 49 fichas (`js/componentes.js` + `js/componentes-nuevos.js`), 11 categorías.
-- **Fotos reales (14 de 49):** `js/imagenes-reales.js` y `img/componentes/`. Créditos completos en `docs/CREDITOS_IMAGENES.md`. Se eliminaron LED y ESP32 porque se perdió su atribución. Los demás componentes usan la ilustración SVG original.
-- **Pendiente:** la imagen de la tabla de código de colores (enviada en el chat) no está guardada como archivo; se usa la tabla en HTML. Para ponerla, guárdala como `img/componentes/codigo-colores.png`.
-- **Despliegue:** `cd publicar`, copiar `index.html css js img` a `sitio/`, y `cf deploy`.
+1. **Derechos:** confirmar la licencia de las 43 fotos pendientes. Si alguna no puede publicarse, retirarla (vuelve la ilustración).
+2. **Hardware:** probar en placas reales el código del proyecto RFID, los ejemplos de Arduino y ESP32, y el coche Elegoo.
+3. **Seguridad RFID:** cambiar la clave WiFi que está escrita en los archivos locales del proyecto RFID del docente (no se incluye aquí). Revisar las reglas de Firebase (hoy abiertas) antes de usar datos reales.
+4. **Diseño:** revisar en teléfono el menú lateral, el visor de imágenes y la cabecera.
+5. **Configurador:** probar el archivo `index.html` abierto desde la carpeta local (`file://`).
+6. **Laboratorio USB:** implementar validar, compilar y cargar (requiere una herramienta en WebAssembly).
+7. **Tinkercad:** confirmar en tinkercad.com las placas y componentes, y probar los seis ejemplos dentro de la herramienta. Ajustar nombres de botones si cambian.
+8. **Contenido:** proyectos de nivel 3 que faltan y código de la estación ESP32; revisar las citas a los libros con el OCR completo; diagrama del ESP32 con la numeración de la placa real.
+9. **Publicación:** revisar por qué `publicar.mjs` no encuentra `cf` (opcional, ya no es necesario con el despliegue por Git).
+
+## 9. Preferencias del usuario
+
+- Todo en español: interfaz, documentación y respuestas.
+- La documentación se guarda dentro de la carpeta del proyecto, para retomar desde otra computadora.
+- Antes de gastar o borrar algo en Cloudflare, consultar. Usar solo el plan gratuito.
+- No exponer credenciales ni datos personales en los archivos publicados.
+- No afirmar que algo funciona en hardware sin probarlo.
+- El usuario envía imágenes una a una y pide reemplazos; las guarda con la ruta de la sesión o pasa enlaces de tiendas. Cuando no hay archivo ni ruta, se pide que lo guarde en `img/componentes`.
+
+## 10. Notas del entorno
+
+- Los archivos temporales de trabajo (textos extraídos del material, imágenes de la sesión, OCR) están fuera del proyecto. Si hacen falta, se regeneran con PyMuPDF y RapidOCR (`rapidocr_onnxruntime`).
+- El navegador de vista previa a veces lanza otro proyecto (LJV) en el puerto 5731. Para este sitio usa el puerto 5741 indicado arriba.
+- El navegador de vista previa no puede abrir archivos locales (`file://`) ni algunos sitios que bloquean consultas automáticas (MercadoLibre y Servotronik devolvieron páginas de verificación).
