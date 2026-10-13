@@ -287,5 +287,26 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar (foto de tienda)",
     "fuente": "https://electrosenaelectronica.com/",
     "titulo": "Encoder rotatorio KY-040 (foto de Electrosena)"
+  },
+  "sensor-tactil": {
+    "src": "img/componentes/sensor-tactil.jpg",
+    "autor": "Imagen de Google Imágenes (TTP223)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "https://encrypted-tbn0.gstatic.com/",
+    "titulo": "Sensor táctil capacitivo TTP223 (imagen del docente)"
+  },
+  "modulo-microsd": {
+    "src": "img/componentes/modulo-microsd.jpg",
+    "autor": "CD Tecnología (módulo microSD)",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://cdtechnologia.net/",
+    "titulo": "Módulo lector y escritor microSD (foto de CD Tecnología)"
+  },
+  "acs712": {
+    "src": "img/componentes/acs712.jpg",
+    "autor": "Imagen de Google Imágenes (ACS712)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "https://encrypted-tbn0.gstatic.com/",
+    "titulo": "Sensor de corriente ACS712 (imagen del docente)"
   }
 };
