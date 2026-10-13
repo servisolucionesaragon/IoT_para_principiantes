@@ -126,5 +126,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar",
     "fuente": "",
     "titulo": "Sensor MQ-135 (imagen del docente)"
+  },
+  "bmp280": {
+    "src": "img/componentes/bmp280.png",
+    "autor": "Aportada por el docente (origen no indicado)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "",
+    "titulo": "Módulo BMP280 (imagen del docente)"
   }
 };
