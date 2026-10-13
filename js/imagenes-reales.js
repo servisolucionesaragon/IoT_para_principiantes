@@ -245,5 +245,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar (foto de tienda)",
     "fuente": "https://megatronica.cc/producto/pantalla-oled-128x64-i2c-display-lcd-0-96-azul-vcc-gnd-arduino/",
     "titulo": "Pantalla OLED 128×64 I²C (foto de la tienda Megatrónica)"
+  },
+  "neopixel": {
+    "src": "img/componentes/neopixel.jpg",
+    "autor": "DigiKey (imagen de fabricante, referencia 5050 WS2812B)",
+    "licencia": "Pendiente de confirmar (imagen de fabricante)",
+    "fuente": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/images/8812/MFG_5962_XL-5050RGBC-WS2812B.jpg",
+    "titulo": "LED RGB WS2812B 5050 (imagen de DigiKey)"
   }
 };
