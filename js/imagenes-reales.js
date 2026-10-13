@@ -224,5 +224,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar",
     "fuente": "https://images.openai.com/static-rsc-4/",
     "titulo": "Sensor de efecto Hall KY-003 (imagen del docente)"
+  },
+  "buzzer": {
+    "src": "img/componentes/buzzer.jpg",
+    "autor": "Tienda Steren (buzzer pasivo)",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://www.steren.com.co/buzzer-pasivo.html",
+    "titulo": "Buzzer pasivo (foto de la tienda Steren)"
   }
 };

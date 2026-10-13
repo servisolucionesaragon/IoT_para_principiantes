@@ -51,7 +51,7 @@ const COMPONENTES = [
     precauciones: ['Con esta disposición, más luz da un valor más alto. Compruébalo tapando el sensor.']
   },
   {
-    id: 'buzzer', categoria: 'Luz y sonido', nombre: 'Buzzer (zumbador)', voltaje: '3–5 V · pasivo o activo',
+    id: 'buzzer', categoria: 'Luz y sonido', nombre: 'Buzzer pasivo (zumbador)', voltaje: '3–5 V · pasivo o activo',
     resumen: 'Emite sonidos para alarmas y avisos.',
     funciona: '<p>Hay dos tipos. El <strong>activo</strong> tiene un oscilador interno: basta con alimentarlo y suena a una frecuencia fija. El <strong>pasivo</strong> necesita una señal de frecuencia que se genera con <code>tone()</code>, y así puedes elegir el tono.</p>',
     conexion: [['Positivo (+)', 'Pin digital (p. ej., D8)'], ['Negativo (−)', 'GND']],
