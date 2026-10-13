@@ -495,6 +495,7 @@
     else if (a === 'componentes') { html = vistaComponentes(); ruta = 'componentes'; }
     else if (a === 'componente') { html = vistaComponente(b); ruta = 'componentes'; }
     else if (a === 'placas') { html = vistaPlacas(); ruta = 'placas'; }
+    else if (a === 'configurador-rfid') { html = vistaConfiguradorRfid(); ruta = 'proyectos'; }
     else if (a === 'tinkercad') { location.hash = '#/leccion/m8-tinkercad'; return; }
     else if (a === 'laboratorio') {
       html = '<div id="lab-raiz"></div>';
@@ -508,6 +509,7 @@
     anadirBotonesCopiar(main);
     montarQuiz(main);
     enlazarVista(a, b);
+    if (a === 'configurador-rfid') enlazarConfiguradorRfid();
     if (a === 'laboratorio' && typeof window.montarLaboratorio === 'function') {
       window.montarLaboratorio($('#lab-raiz'));
     }

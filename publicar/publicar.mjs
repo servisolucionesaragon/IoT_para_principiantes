@@ -19,7 +19,7 @@ import { fileURLToPath } from "node:url";
 const AQUI = dirname(fileURLToPath(import.meta.url));
 const ORIGEN = join(AQUI, "..");
 const DESTINO = join(AQUI, "sitio");
-const PUBLICAR = ["index.html", "css", "js", "img"];
+const PUBLICAR = ["index.html", "css", "js", "img", "plantillas"];
 const URL_SITIO = "https://iot-para-principiantes.servisolucionesti.workers.dev/";
 const probar = process.argv.includes("--probar");
 

@@ -639,6 +639,7 @@ void loop() {
       <li>Revisa que aparezca <strong>● En vivo</strong> en la cabecera.</li>
     </ol>
     <div class="caja advertencia"><strong>Datos personales</strong>La página muestra nombres y documentos de estudiantes. Con las reglas abiertas de Firebase, cualquiera con la URL puede ver y modificar esos datos. Usa la página solo en un equipo del colegio y no la publiques en internet hasta agregar autenticación.</div>
+    <p><a href="#/configurador-rfid"><strong>Generar mi código y mi index.html con mis datos de WiFi y Firebase →</strong></a></p>
     <p>Código y página completos: <a href="https://github.com/servisolucionesaragon/IoT_para_principiantes/tree/main/proyectos/control-acceso-rfid" target="_blank" rel="noopener">carpeta del proyecto en GitHub</a>.</p>`,
   pruebas: ['Una tarjeta registrada muestra el nombre y alterna entrada/salida en el monitor serie.', 'Una tarjeta nueva aparece como pendiente en la base de datos y suenan dos avisos.', 'Sin Wi-Fi, el ESP32 reintenta la conexión y no se bloquea.'],
   problemas: ['El RC522 no responde → va a 3,3 V; con 5 V se daña.', 'Error de Firebase → revisa el host, las reglas de la base de datos y la conexión a internet.', 'La tarjeta se lee dos veces → espera 2 s (ya incluido) y evita acercarla de forma continua.'],

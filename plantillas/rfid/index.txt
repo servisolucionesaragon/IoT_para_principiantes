@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Control de Acceso Escolar</title>
+<style>
+  :root { --azul:#1d4ed8; --verde:#16a34a; --rojo:#dc2626; --gris:#f3f4f6; }
+  * { box-sizing:border-box; }
+  body { font-family:system-ui,sans-serif; margin:0; background:var(--gris); color:#111827; }
+  header { background:var(--azul); color:#fff; padding:16px 20px; display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between; }
+  header h1 { margin:0; font-size:1.3rem; }
+  .dentro { background:#fff; color:var(--azul); padding:8px 16px; border-radius:999px; font-weight:700; }
+  main { max-width:1000px; margin:20px auto; padding:0 16px; display:grid; gap:20px; }
+  section { background:#fff; border-radius:12px; padding:16px; box-shadow:0 1px 3px rgba(0,0,0,.1); }
+  h2 { margin:0 0 12px; font-size:1.1rem; }
+  .filtros { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; }
+  input, select, button { padding:8px 10px; border:1px solid #d1d5db; border-radius:8px; font-size:.95rem; }
+  button { background:var(--azul); color:#fff; border:none; cursor:pointer; }
+  button.sec { background:#6b7280; }
+  table { width:100%; border-collapse:collapse; font-size:.92rem; }
+  th, td { text-align:left; padding:8px; border-bottom:1px solid #e5e7eb; }
+  th { background:var(--gris); }
+  .entrada { color:var(--verde); font-weight:700; }
+  .salida { color:var(--rojo); font-weight:700; }
+  .pend { display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding:8px 0; border-bottom:1px solid #e5e7eb; }
+  .pend code { background:var(--gris); padding:4px 8px; border-radius:6px; }
+  .vacio { color:#6b7280; font-style:italic; }
+  .tabla-scroll { overflow-x:auto; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🎓 Control de Acceso Escolar</h1>
+  <div style="display:flex;gap:12px;align-items:center"><span id="estado" style="background:#fff;padding:6px 12px;border-radius:999px;font-weight:600;color:#dc2626">○ Conectando...</span><div class="dentro">Dentro ahora: <span id="cuenta">0</span></div></div>
+</header>
+
+<main>
+  <section>
+    <h2>🆕 Tarjetas nuevas por asignar</h2>
+    <div id="pendientes"><p class="vacio">Sin tarjetas pendientes.</p></div>
+  </section>
+
+  <section>
+    <h2>✍️ Registrar acceso manual</h2>
+    <p class="vacio">Para visitas o cuando alguien olvida la tarjeta. El registro queda marcado como manual.</p>
+    <div class="filtros">
+      <select id="manual-est" aria-label="Estudiante"><option value="">— elige estudiante —</option></select>
+      <button onclick="registrarManual('entrada')">Registrar entrada</button>
+      <button class="sec" onclick="registrarManual('salida')">Registrar salida</button>
+    </div>
+    <p id="manual-msg" class="vacio"></p>
+  </section>
+
+  <section>
+    <h2>📋 Registros</h2>
+    <div class="filtros">
+      <input id="buscar" placeholder="Buscar nombre o documento">
+      <input id="fecha" type="date">
+      <select id="tipo">
+        <option value="">Entrada y salida</option>
+        <option value="entrada">Solo entradas</option>
+        <option value="salida">Solo salidas</option>
+      </select>
+      <button class="sec" onclick="limpiarFiltros()">Limpiar</button>
+      <button onclick="exportarCSV()">⬇ Exportar a Excel (CSV)</button>
+    </div>
+    <div class="tabla-scroll">
+      <table>
+        <thead><tr><th>Fecha</th><th>Hora</th><th>Nombre</th><th>Documento</th><th>Tipo</th></tr></thead>
+        <tbody id="filas"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>👥 Estudiantes registrados</h2>
+    <div class="tabla-scroll">
+      <table>
+        <thead><tr><th>Nombre</th><th>Documento</th><th>UID</th><th></th></tr></thead>
+        <tbody id="estudiantes"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script>
+const DB_URL = "https://TU-PROYECTO-default-rtdb.firebaseio.com"; // reemplaza por tu URL
+let registros = [];
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g,
+  c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+async function api(metodo, ruta, cuerpo, params = "") {
+  const r = await fetch(`${DB_URL}/${ruta}.json${params}`, {
+    method: metodo,
+    body: cuerpo !== undefined ? JSON.stringify(cuerpo) : undefined
+  });
+  const datos = await r.json();
+  if (datos && datos.error) throw new Error(datos.error);
+  return datos;
+}
+
+function fechaHora(ts) {
+  const d = new Date(ts);
+  const p = n => String(n).padStart(2, "0");
+  return {
+    fecha: d.toLocaleDateString("es-CO"),
+    hora: d.toLocaleTimeString("es-CO"),
+    iso: `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`
+  };
+}
+
+let datos = {};          // copia local de la base de datos
+let pendienteRender = false;
+
+function render() {
+  pendienteRender = false;
+  registros = Object.values(datos.registros || {}).sort((x, y) => y.ts - x.ts).slice(0, 1000);
+  document.getElementById("cuenta").textContent =
+    Object.values(datos.abierto || {}).filter(v => v === true).length;
+  pintarPendientes(datos.pendientes || {});
+  pintarEstudiantes(datos.estudiantes || {});
+  llenarSelectManual(datos.estudiantes || {});
+  pintarRegistros();
+}
+function cargar() {
+  if (!pendienteRender) { pendienteRender = true; requestAnimationFrame(render); }
+}
+
+// Aplica un cambio {path, data} de Firebase a la copia local
+function aplicar(path, data, mezclar) {
+  const partes = path.split("/").filter(Boolean);
+  if (!partes.length) {
+    datos = mezclar ? Object.assign(datos, data || {}) : (data || {});
+    return;
+  }
+  let nodo = datos;
+  for (let i = 0; i < partes.length - 1; i++) {
+    if (typeof nodo[partes[i]] !== "object" || nodo[partes[i]] === null) nodo[partes[i]] = {};
+    nodo = nodo[partes[i]];
+  }
+  const k = partes[partes.length - 1];
+  if (mezclar && data && typeof data === "object") {
+    nodo[k] = Object.assign(nodo[k] || {}, data);
+  } else if (data === null) {
+    delete nodo[k];
+  } else {
+    nodo[k] = data;
+  }
+}
+
+function estado(texto, ok) {
+  const el = document.getElementById("estado");
+  el.textContent = (ok ? "● " : "○ ") + texto;
+  el.style.color = ok ? "#16a34a" : "#dc2626";
+}
+
+function conectar() {
+  const es = new EventSource(`${DB_URL}/.json`);
+  es.addEventListener("open", () => estado("En vivo", true));
+  es.addEventListener("put", e => { const m = JSON.parse(e.data); aplicar(m.path, m.data, false); cargar(); });
+  es.addEventListener("patch", e => { const m = JSON.parse(e.data); aplicar(m.path, m.data, true); cargar(); });
+  es.addEventListener("cancel", () => estado("Sin permiso (revisa las reglas de Firebase)", false));
+  es.addEventListener("auth_revoked", () => estado("Sesión revocada", false));
+  es.onerror = () => estado("Reconectando...", false);
+}
+
+function pintarPendientes(pend) {
+  const cont = document.getElementById("pendientes");
+  // Conservar lo que el usuario esté escribiendo
+  const guardado = {};
+  cont.querySelectorAll("input").forEach(i => guardado[i.id] = i.value);
+  const enfocado = document.activeElement && cont.contains(document.activeElement) ? document.activeElement.id : null;
+  const uids = Object.keys(pend);
+  if (!uids.length) { cont.innerHTML = '<p class="vacio">Sin tarjetas pendientes.</p>'; return; }
+  cont.innerHTML = uids.map(uid => `
+    <div class="pend">
+      <code>${esc(uid)}</code>
+      <input id="n-${esc(uid)}" placeholder="Nombre completo">
+      <input id="d-${esc(uid)}" placeholder="Documento">
+      <button onclick="asignar('${esc(uid)}')">Asignar</button>
+      <button class="sec" onclick="descartar('${esc(uid)}')">Descartar</button>
+    </div>`).join("");
+  cont.querySelectorAll("input").forEach(i => { if (guardado[i.id]) i.value = guardado[i.id]; });
+  if (enfocado) { const f = document.getElementById(enfocado); if (f) f.focus(); }
+}
+
+function llenarSelectManual(est) {
+  const sel = document.getElementById("manual-est");
+  const actual = sel.value;
+  const lista = Object.entries(est).sort((a, b) => String(a[1].nombre).localeCompare(String(b[1].nombre)));
+  sel.innerHTML = '<option value="">— elige estudiante —</option>' + lista.map(([uid, e]) =>
+    `<option value="${esc(uid)}">${esc(e.nombre)} (${esc(e.documento)})</option>`).join("");
+  if (actual && est[actual]) sel.value = actual;
+}
+
+async function registrarManual(tipo) {
+  const uid = document.getElementById("manual-est").value;
+  const msg = document.getElementById("manual-msg");
+  if (!uid) { msg.textContent = "Elige un estudiante."; return; }
+  const e = (datos.estudiantes || {})[uid];
+  if (!e) { msg.textContent = "Ese estudiante ya no existe."; return; }
+  const dentro = (datos.abierto || {})[uid] === true;
+  if (tipo === "entrada" && dentro) { msg.textContent = e.nombre + " ya figura dentro."; return; }
+  if (tipo === "salida" && !dentro) { msg.textContent = e.nombre + " ya figura fuera."; return; }
+  try {
+    await api("POST", "registros", { uid, nombre: e.nombre, documento: e.documento, tipo, manual: true, ts: { ".sv": "timestamp" } });
+    await api("PUT", "abierto/" + uid, tipo === "entrada");
+    msg.textContent = "✔ " + tipo[0].toUpperCase() + tipo.slice(1) + " registrada para " + e.nombre + ".";
+  } catch (err) {
+    msg.textContent = "No se pudo registrar: " + err.message;
+  }
+  cargar();
+}
+
+function pintarEstudiantes(est) {
+  document.getElementById("estudiantes").innerHTML = Object.entries(est).map(([uid, e]) => `
+    <tr><td>${esc(e.nombre)}</td><td>${esc(e.documento)}</td><td><code>${esc(uid)}</code></td>
+    <td><button class="sec" onclick="eliminarEst('${esc(uid)}')">Eliminar</button></td></tr>`).join("")
+    || '<tr><td colspan="4" class="vacio">Aún no hay estudiantes.</td></tr>';
+}
+
+function filtrados() {
+  const q = document.getElementById("buscar").value.toLowerCase();
+  const f = document.getElementById("fecha").value;
+  const t = document.getElementById("tipo").value;
+  return registros.filter(r =>
+    (!q || (r.nombre || "").toLowerCase().includes(q) || String(r.documento).includes(q)) &&
+    (!f || fechaHora(r.ts).iso === f) &&
+    (!t || r.tipo === t));
+}
+
+function pintarRegistros() {
+  const lista = filtrados();
+  document.getElementById("filas").innerHTML = lista.map(r => {
+    const fh = fechaHora(r.ts);
+    return `<tr><td>${fh.fecha}</td><td>${fh.hora}</td><td>${esc(r.nombre)}</td>
+            <td>${esc(r.documento)}</td><td class="${esc(r.tipo)}">${esc(r.tipo)}</td></tr>`;
+  }).join("") || '<tr><td colspan="5" class="vacio">Sin registros.</td></tr>';
+}
+
+async function asignar(uid) {
+  const nombre = document.getElementById("n-" + uid).value.trim();
+  const documento = document.getElementById("d-" + uid).value.trim();
+  if (!nombre || !documento) return alert("Completa nombre y documento");
+  await api("PUT", "estudiantes/" + uid, { nombre, documento });
+  await api("DELETE", "pendientes/" + uid);
+  cargar();
+}
+async function descartar(uid) { await api("DELETE", "pendientes/" + uid); cargar(); }
+async function eliminarEst(uid) {
+  if (!confirm("¿Eliminar este estudiante?")) return;
+  await api("DELETE", "estudiantes/" + uid);
+  await api("DELETE", "abierto/" + uid);
+  cargar();
+}
+
+function limpiarFiltros() {
+  document.getElementById("buscar").value = "";
+  document.getElementById("fecha").value = "";
+  document.getElementById("tipo").value = "";
+  pintarRegistros();
+}
+
+function exportarCSV() {
+  const celda = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
+  const filas = [["Fecha","Hora","Nombre","Documento","Tipo"]].concat(
+    filtrados().map(r => { const fh = fechaHora(r.ts); return [fh.fecha, fh.hora, r.nombre, r.documento, r.tipo]; }));
+  const csv = "﻿" + filas.map(f => f.map(celda).join(";")).join("\r\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+  a.download = "registros_acceso.csv";
+  a.click();
+}
+
+["buscar", "fecha", "tipo"].forEach(id =>
+  document.getElementById(id).addEventListener("input", pintarRegistros));
+
+conectar();
+</script>
+</body>
+</html>
