@@ -1,0 +1,13 @@
+{
+  "name": "iot-para-principiantes-publicar",
+  "private": true,
+  "description": "Herramientas para publicar IoT para Principiantes (../) en Cloudflare Workers.",
+  "scripts": {
+    "publicar": "node publicar.mjs",
+    "probar": "node publicar.mjs --probar"
+  },
+  "devDependencies": {
+    "wrangler": "latest"
+  },
+  "type": "module"
+}

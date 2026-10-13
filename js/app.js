@@ -250,12 +250,14 @@
     ];
     return `<p class="migas"><a href="#/inicio">Inicio</a> › Proyectos</p>
       <h1>Biblioteca de proyectos</h1>
-      <p>Cada proyecto indica materiales, conexiones, código, pruebas y problemas frecuentes. Los proyectos de nivel 3 se añadirán en versiones posteriores.</p>
+      <p>Cada proyecto indica materiales, conexiones, código, pruebas y problemas frecuentes. Filtra por sensor o dispositivo para encontrar lo que tienes en casa.</p>
+      <div class="acciones">${filtroSensoresHtml()}</div>
+      <p id="sin-proyectos" class="pista" hidden>Ningún proyecto usa ese sensor todavía.</p>
       ${niveles.map(([n, t]) => {
         const ps = PROYECTOS.filter(p => p.nivel === n);
         if (!ps.length) return `<h2>${t}</h2><p class="pista">Próximamente.</p>`;
         return `<h2>${t}</h2><div class="tarjetas">${ps.map(p => `
-          <a class="tarjeta" href="#/proyecto/${p.id}">
+          <a class="tarjeta" data-sensores="${esc((p.sensores || []).join('|'))}" href="#/proyecto/${p.id}">
             <span class="etiqueta">${esc(p.dificultad)} · ${esc(p.tiempo)}</span>
             <strong>${esc(p.titulo)}</strong><span>${esc(p.problema)}</span>
           </a>`).join('')}</div>`;
@@ -271,11 +273,21 @@
       <h2>Problema que resuelve</h2><p>${esc(p.problema)}</p>
       <h2>Objetivo de aprendizaje</h2><p>${esc(p.objetivo)}</p>
       <h2>Materiales</h2><ul>${p.componentes.map(c => `<li>${esc(c)}</li>`).join('')}</ul>
+      ${(() => {
+        const ids = [...new Set((p.sensores || []).map(s => SENSOR_A_COMPONENTE[s]).filter(Boolean))];
+        if (!ids.length) return '';
+        return `<h2>Sensores y dispositivos</h2><p>Toca una imagen para ver cómo funciona y cómo se conecta.</p>
+          <div class="tarjetas">${ids.map(id => {
+            const c = COMPONENTES.find(x => x.id === id);
+            return c ? `<a class="tarjeta" href="#/componente/${id}">${imagenComponente(id, true)}<strong>${esc(c.nombre)}</strong></a>` : '';
+          }).join('')}</div>`;
+      })()}
       <h2>Conexiones</h2>
       <div class="tabla-wrap"><table><thead><tr><th>Componente / pin</th><th>Conexión</th></tr></thead>
         <tbody>${p.conexiones.map(([a, b]) => `<tr><td>${esc(a)}</td><td>${esc(b)}</td></tr>`).join('')}</tbody></table></div>
+      ${p.imagen ? `<figure class="diagrama"><img src="${esc(p.imagen.src)}" alt="${esc(p.imagen.alt)}" loading="lazy" style="width:100%;height:auto"><figcaption>Diagrama de conexión del proyecto.</figcaption></figure>` : ''}
       ${p.codigo
-        ? `<div class="acciones"><button type="button" class="secundario" id="btn-lab-proyecto" data-proyecto="${p.id}">Abrir en el laboratorio</button></div>
+        ?`<div class="acciones"><button type="button" class="secundario" id="btn-lab-proyecto" data-proyecto="${p.id}">Abrir en el laboratorio</button></div>
            <h2>Código</h2>${cod(p.codigo)}`
         : `<div class="caja advertencia"><strong>Código pendiente</strong>Este proyecto de diseño aún no tiene un programa verificado en esta plataforma.</div>`}
       <h2>Pruebas para comprobar</h2><ul>${p.pruebas.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
@@ -327,6 +339,86 @@
       </ul>`;
   }
 
+  /* ---------- Sensores y dispositivos ---------- */
+  function vistaComponentes() {
+    return `<p class="migas"><a href="#/inicio">Inicio</a> › Sensores y dispositivos</p>
+      <h1>Sensores y dispositivos</h1>
+      <p>Cada ficha explica cómo funciona el componente, cómo se conecta a la placa, un código de prueba y las precauciones. Las resistencias y la protoboard tienen fichas propias.</p>
+      ${CATEGORIAS_COMPONENTES.map(cat => {
+        const items = COMPONENTES.filter(c => c.categoria === cat);
+        if (!items.length) return '';
+        return `<h2>${esc(cat)}</h2><div class="tarjetas">${items.map(c => `
+          <a class="tarjeta" href="#/componente/${c.id}">
+            ${imagenComponente(c.id, true)}
+            <span class="etiqueta">${esc(cat)}</span>
+            <strong>${esc(c.nombre)}</strong>
+            <span>${esc(c.resumen)}</span>
+            ${c.voltaje ? `<span class="pista">${esc(c.voltaje)}</span>` : ''}
+          </a>`).join('')}</div>`;
+      }).join('')}`;
+  }
+
+  function vistaComponente(id) {
+    const c = COMPONENTES.find(x => x.id === id);
+    if (!c) return vistaNoEncontrada();
+    let cuerpo;
+    if (c.especial === 'resistencias') cuerpo = RESISTENCIAS_HTML;
+    else if (c.especial === 'protoboard') cuerpo = PROTOBOARD_HTML;
+    else {
+      cuerpo = `
+        <p>${esc(c.resumen)}</p>
+        ${c.voltaje ? `<p class="pista"><strong>Voltaje y tipo:</strong> ${esc(c.voltaje)}</p>` : ''}
+        <h2>Cómo funciona</h2>${c.funciona || ''}
+        <h2>Cómo se conecta</h2>
+        <div class="tabla-wrap"><table><thead><tr><th>Pin del componente</th><th>Conexión en la placa</th></tr></thead>
+          <tbody>${(c.conexion || []).map(([a, b]) => `<tr><td>${esc(a)}</td><td>${esc(b)}</td></tr>`).join('')}</tbody></table></div>
+        ${c.codigo ? `<h2>Código de prueba</h2>${cod(c.codigo)}` : '<p class="pista">Esta ficha no incluye código: se usa en un proyecto (ver Biblioteca).</p>'}
+        ${(c.precauciones && c.precauciones.length) ? `<div class="caja advertencia"><strong>Precauciones</strong><ul>${c.precauciones.map(p => `<li>${esc(p)}</li>`).join('')}</ul></div>` : ''}`;
+    }
+    const idx = COMPONENTES.indexOf(c);
+    const ant = COMPONENTES[idx - 1];
+    const sig = COMPONENTES[idx + 1];
+    return `<p class="migas"><a href="#/inicio">Inicio</a> › <a href="#/componentes">Sensores y dispositivos</a> › ${esc(c.nombre)}</p>
+      <h1>${esc(c.nombre)}</h1>
+      ${imagenComponente(c.id)}
+      ${cuerpo}
+      <nav class="navegacion-lecciones" aria-label="Componentes anterior y siguiente">
+        ${ant ? `<a class="boton secundario" href="#/componente/${ant.id}">← ${esc(ant.nombre)}</a>` : '<span></span>'}
+        ${sig ? `<a class="boton" href="#/componente/${sig.id}">${esc(sig.nombre)} →</a>` : '<span></span>'}
+      </nav>`;
+  }
+
+  /* ---------- Placas y diagramas de conexión ---------- */
+  function vistaPlacas() {
+    return `<p class="migas"><a href="#/inicio">Inicio</a> › Placas y conexiones</p>
+      <h1>Placas y diagramas de conexión</h1>
+      <p>Antes de conectar un componente, localiza el pin en el diagrama de tu placa. Los pines numerados son los que usan las prácticas de la plataforma.</p>
+      <div class="caja advertencia"><strong>Diferencia clave</strong>El Arduino UNO trabaja a 5 V y el ESP32 a 3,3 V. Un sensor de 5 V no debe conectarse directo a un pin del ESP32.</div>
+      <h2>Arduino UNO</h2>
+      ${diagramaUno([])}
+      <h2>ESP32 DevKit</h2>
+      ${diagramaEsp32([])}
+      <h2>Protoboard</h2>
+      <p>Para unir la placa con los componentes sin soldar. Ficha completa en <a href="#/componente/protoboard">Sensores y dispositivos → Protoboard</a>.</p>
+      ${svgProtoboard() ? `<figure class="diagrama">${svgProtoboard()}<figcaption>Columnas de cinco orificios unidos y rieles de alimentación.</figcaption></figure>` : ''}
+      <h2>Cómo leer un diagrama de conexión</h2>
+      <ol>
+        <li>Busca el pin que indica la práctica (por ejemplo, <strong>D9</strong>).</li>
+        <li>Revisa la alimentación: 5 V o 3,3 V, y GND.</li>
+        <li>Conecta el componente siguiendo la tabla de la lección.</li>
+        <li>Compara el montaje con el diagrama antes de encender.</li>
+      </ol>`;
+  }
+
+  function filtroSensoresHtml() {
+    const todos = new Set();
+    PROYECTOS.forEach(p => (p.sensores || []).forEach(s => todos.add(s)));
+    return `<label>Filtrar por sensor o dispositivo:
+      <select id="filtro-sensor"><option value="">Todos</option>
+      ${Array.from(todos).sort().map(s => `<option value="${esc(s)}">${esc(s)}</option>`).join('')}
+      </select></label>`;
+  }
+
   function vistaNoEncontrada() {
     return `<h1>Página no encontrada</h1><p>Vuelve al <a href="#/inicio">inicio</a>.</p>`;
   }
@@ -348,7 +440,8 @@
   function construirIndice() {
     indice = [];
     LECCIONES.forEach(l => indice.push({ tipo: 'Lección', titulo: l.titulo, ruta: enlaceLeccion(l), texto: l.resumen + ' ' + textoPlano(l.cuerpo) }));
-    PROYECTOS.forEach(p => indice.push({ tipo: 'Proyecto', titulo: p.titulo, ruta: '#/proyecto/' + p.id, texto: p.problema + ' ' + p.componentes.join(' ') }));
+    PROYECTOS.forEach(p => indice.push({ tipo: 'Proyecto', titulo: p.titulo, ruta: '#/proyecto/' + p.id, texto: p.problema + ' ' + p.componentes.join(' ') + ' ' + (p.sensores || []).join(' ') }));
+    COMPONENTES.forEach(c => indice.push({ tipo: 'Sensor o dispositivo', titulo: c.nombre, ruta: '#/componente/' + c.id, texto: (c.resumen || '') + ' ' + (c.funciona ? textoPlano(c.funciona) : '') }));
     DIAGNOSTICO.forEach(d => indice.push({ tipo: 'Solución', titulo: d.problema, ruta: '#/diagnostico', texto: d.causas + ' ' + d.solucion }));
     indice.forEach(e => { e.tituloN = e.titulo.toLowerCase(); e.textoN = (e.texto || '').toLowerCase(); });
   }
@@ -396,6 +489,9 @@
     else if (a === 'diagnostico') { html = vistaDiagnostico(); ruta = 'diagnostico'; }
     else if (a === 'retos') { html = vistaRetos(); ruta = 'retos'; }
     else if (a === 'recursos') { html = vistaRecursos(); ruta = 'recursos'; }
+    else if (a === 'componentes') { html = vistaComponentes(); ruta = 'componentes'; }
+    else if (a === 'componente') { html = vistaComponente(b); ruta = 'componentes'; }
+    else if (a === 'placas') { html = vistaPlacas(); ruta = 'placas'; }
     else if (a === 'tinkercad') { location.hash = '#/leccion/m8-tinkercad'; return; }
     else if (a === 'laboratorio') {
       html = '<div id="lab-raiz"></div>';
@@ -419,6 +515,21 @@
   }
 
   function enlazarVista(a, b) {
+    const filtro = $('#filtro-sensor');
+    if (filtro) {
+      filtro.addEventListener('change', () => {
+        const valor = filtro.value;
+        let visibles = 0;
+        $$('#vista .tarjeta[data-sensores]').forEach(t => {
+          const lista = t.getAttribute('data-sensores').split('|');
+          const mostrar = !valor || lista.includes(valor);
+          t.hidden = !mostrar;
+          if (mostrar) visibles++;
+        });
+        const aviso = $('#sin-proyectos');
+        if (aviso) aviso.hidden = visibles > 0;
+      });
+    }
     const btnCompletar = $('#btn-completar');
     if (btnCompletar) {
       btnCompletar.addEventListener('click', () => {

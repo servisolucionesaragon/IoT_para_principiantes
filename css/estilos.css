@@ -242,6 +242,14 @@ select, input[type="number"] { padding: 8px; border-radius: 8px; border: 1px sol
 .pasos li.hecho { border-color: var(--ok); }
 .pasos li.actual { border-color: var(--acento); box-shadow: 0 0 0 2px var(--primario-claro); }
 
+.ilustracion { margin: 14px 0; max-width: 300px; }
+.ilustracion svg { width: 100%; height: auto; display: block; }
+.ilustracion.mini { margin: 0 0 8px; max-width: none; }
+.tarjeta .ilustracion.mini svg { border-radius: 8px; }
+
+.leyenda-pines { margin: 10px 0 0; padding-left: 20px; }
+.leyenda-pines li { margin: 2px 0; }
+
 footer { border-top: 1px solid var(--borde); color: var(--texto-suave); padding: 18px 16px; font-size: .9rem; text-align: center; }
 
 /* Móvil */

@@ -89,3 +89,16 @@ node --check js/contenido.js && node --check js/app.js && node --check js/labora
 - Quiere la documentación dentro de la carpeta del proyecto, para retomarla desde otra computadora.
 - Antes de gastar o borrar algo en Cloudflare, consultar. Usar solo plan gratuito.
 - Advertencias de seguridad: no exponer credenciales; no afirmar que algo funciona en hardware sin probarlo.
+
+## Actualización 2026-10-12 (segunda parte)
+
+- **Sensores y dispositivos:** 26 fichas (resistencias, protoboard, LED, pulsador, potenciómetro, LDR, buzzer, PIR, IR de obstáculos, inclinación, MPU-6050, MQ-2, MQ-135, LM35, DHT11, humedad de suelo, sonido, joystick, RFID RC522, GPS NEO-6M, relé, servo, motor DC, LCD I²C, HC-06, HC-SR04). Cada una con funcionamiento, conexión, código y precauciones.
+- **Resistencias:** código de colores, LED, potencia, serie/paralelo, divisor y pull-up.
+- **Protoboard:** qué es, cómo se unen los orificios, uso paso a paso, errores frecuentes (ficha y lección 5).
+- **Diagramas de conexión gráficos:** Arduino UNO y ESP32 DevKit con los pines de cada práctica resaltados (`js/diagramas.js`). Pinout del ESP32 simplificado: confirma la numeración de tu placa.
+- **Imágenes:** ilustraciones SVG **originales** (`js/imagenes.js`). No se usan fotos de los kits ni de los libros: publicarlas en un sitio público redistribuiría material con derechos de autor. Propuesta pendiente: si quieres fotos reales, hay que decidir con el docente qué material puede publicarse.
+- **Biblioteca de proyectos:** 18 proyectos (niveles 1–4), filtro por sensor, imagen de diagrama en el proyecto RFID.
+- **Proyecto RFID de la carpeta `Proyectos/Control de acceso RFID`** (`acceso-rfid-nube`): aportado por el docente. Se publicó la versión ESP32 **sin credenciales**: el original tenía la contraseña del WiFi, el host real de Firebase y guardaba el documento de identidad de estudiantes. Esos datos no deben publicarse. Se quitó también el campo `documento`. Pendiente: que el docente revise las reglas de su base de datos (si son públicas, cualquiera puede leer o escribir).
+- **Material Elegoo:** Módulo 9 (6 lecciones del coche inteligente).
+- **Publicación:** `publicar/publicar.mjs` (Worker `iot-para-principiantes`, plan gratuito). Ver README.
+- **Pendientes nuevos:** probar los diagramas y el filtro en el navegador de escritorio; revisar que el navegador no conserve versiones antiguas (se añadió `?v=` a los recursos); decidir si se usan fotos reales.

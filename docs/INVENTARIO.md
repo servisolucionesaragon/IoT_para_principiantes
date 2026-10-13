@@ -109,3 +109,17 @@ Los PDF y los `.ino` se leyeron como texto; los `.doc` y `.docx` solo se registr
 | Leccion 5 Línea de seguimiento de coches\Line_tracking_car\Line_tracking_car.ino | Programa de ejemplo del kit. Referencia; el código de la plataforma es propio. |
 | Lección 2 coche Bluetooth\Lección 2 coche Bluetooth .pdf | Módulo 9 · e2 (Bluetooth HC-06). Código de referencia; código propio. |
 | Lección 2 coche Bluetooth\SmartCar_Core2.0\SmartCar_Core2.0.ino | Módulo 9 · e2 (Bluetooth HC-06). Código de referencia; código propio. |
+
+## Material aportado después: `Proyectos/Control de acceso RFID`
+
+| Archivo | Uso en la plataforma |
+|---|---|
+| Arduino R4/Arduino R4.ino | Versión Arduino R4 WiFi. Referencia del cableado SPI y del buzzer. **Contiene credenciales: no publicado.** |
+| Arduino R4/arduino R4.png | Imagen de referencia. No publicada. |
+| Esp32/esp32.ino | Versión ESP32. Base del proyecto `acceso-rfid-nube`, **sin credenciales ni datos personales**. |
+| Esp32/esp32_pines_reales.png | Diagrama de conexión propio del docente. Publicado en `img/proyectos/rfid-esp32-pines.png`. |
+| Esp32/esp32.png | Imagen de referencia. No publicada. |
+| index.html | Panel web del docente (tabla de registros y asignación de tarjetas). No se publica: depende de la base de datos del proyecto escolar. |
+| Arduino R4/.DS_Store | Archivo del sistema, ignorado. |
+
+Hallazgo: el código original incluye la contraseña del WiFi y el host de Firebase; el panel registra documentos de identidad de estudiantes. Ver `docs/CONTEXTO.md`.

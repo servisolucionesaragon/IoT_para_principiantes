@@ -13,9 +13,11 @@ Cada lección combina concepto, conexión, código para copiar, prueba y cuestio
 |---|---|
 | Módulos 1–8 | 17 lecciones: IoT, electricidad básica, seguridad, Arduino, ESP32, sensores (potenciómetro/LDR, DHT11, HC-SR04, servo SG90), montaje en protoboard, depuración con `millis()`, datos IoT (HTTP/MQTT) y Tinkercad |
 | Módulo 9 | 6 lecciones del coche inteligente con Arduino UNO (kit Elegoo): ensamblaje y pines, movimiento, Bluetooth HC-06, infrarrojos, evitar obstáculos y seguir línea |
-| Proyectos | 4 proyectos con materiales, conexiones, código, pruebas, problemas frecuentes y mejoras (3 con código de ejemplo y 1 de diseño; ningún código está probado en hardware) |
+| Proyectos | 18 proyectos (niveles 1–4) con filtro por sensor, incluido el control de acceso RFID aportado por el docente. Antes: 4 proyectos con materiales, conexiones, código, pruebas, problemas frecuentes y mejoras (3 con código de ejemplo y 1 de diseño; ningún código está probado en hardware) |
 | Solución de problemas | 11 problemas frecuentes con causas, comprobaciones y solución |
 | Retos | 5 retos con pistas progresivas |
+| Sensores y dispositivos | 26 fichas con funcionamiento, conexión, código, precauciones e ilustración; fichas de resistencias (código de colores, cálculo, potencia, divisor) y protoboard |
+| Placas y diagramas | Diagramas gráficos de conexión de Arduino UNO y ESP32 con los pines de cada práctica resaltados |
 | Recursos | Resumen de los documentos originales y su uso ([docs/INVENTARIO.md](docs/INVENTARIO.md)) |
 | Laboratorio USB | Conexión por Web Serial, monitor serie, editor con ejemplos y copiar código. **Compilar y cargar no están implementados aún** |
 | Utilidades | Buscador, progreso guardado en el navegador, modo claro/oscuro, menú adaptable a móvil |
