@@ -274,6 +274,7 @@
       <p class="pista">Nivel ${p.nivel} · ${esc(p.dificultad)} · Tiempo aproximado: ${esc(p.tiempo)} · Placa: ${esc(p.placa)}</p>
       <h2>Problema que resuelve</h2><p>${esc(p.problema)}</p>
       <h2>Objetivo de aprendizaje</h2><p>${esc(p.objetivo)}</p>
+      ${p.accion ? `<div class="acciones"><a class="boton" href="${esc(p.accion.href)}">${esc(p.accion.texto)}</a></div>` : ''}
       <h2>Materiales</h2><ul>${p.componentes.map(c => `<li>${esc(c)}</li>`).join('')}</ul>
       ${(() => {
         const ids = [...new Set((p.sensores || []).map(s => SENSOR_A_COMPONENTE[s]).filter(Boolean))];
@@ -287,12 +288,13 @@
       <h2>Conexiones</h2>
       <div class="tabla-wrap"><table><thead><tr><th>Componente / pin</th><th>Conexión</th></tr></thead>
         <tbody>${p.conexiones.map(([a, b]) => `<tr><td>${esc(a)}</td><td>${esc(b)}</td></tr>`).join('')}</tbody></table></div>
+      ${p.diagramas ? p.diagramas() : ''}
       ${p.imagen ? `<figure class="diagrama"><img src="${esc(p.imagen.src)}" alt="${esc(p.imagen.alt)}" loading="lazy" style="width:100%;height:auto"><figcaption>Diagrama de conexión del proyecto.</figcaption></figure>` : ''}
+      ${p.web ? `<h2>Página web para visualizar los datos</h2>${p.web}` : ''}
       ${p.codigo
         ?`<div class="acciones"><button type="button" class="secundario" id="btn-lab-proyecto" data-proyecto="${p.id}">Abrir en el laboratorio</button></div>
            <h2>Código</h2>${cod(p.codigo)}`
         : `<div class="caja advertencia"><strong>Código pendiente</strong>Este proyecto de diseño aún no tiene un programa verificado en esta plataforma.</div>`}
-      ${p.web ? `<h2>Página web para visualizar los datos</h2>${p.web}` : ''}
       <h2>Pruebas para comprobar</h2><ul>${p.pruebas.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
       <h2>Problemas frecuentes</h2><ul>${p.problemas.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
       <h2>Mejoras opcionales</h2><ul>${p.mejoras.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
