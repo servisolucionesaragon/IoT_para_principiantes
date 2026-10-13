@@ -291,3 +291,9 @@ footer { border-top: 1px solid var(--borde); color: var(--texto-suave); padding:
 .navegacion-lecciones a { font-size: .95rem; }
 .migas { font-size: .9rem; margin-bottom: 14px; }
 footer { font-size: .9rem; }
+
+/* Marca en la cabecera: símbolo + nombre en texto (siempre visible sobre fondo oscuro) */
+.cabecera .marca { display: inline-flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; }
+.cabecera .marca img { display: block; flex: none; }
+.cabecera .marca-texto { font-size: 1.05rem; font-weight: 600; line-height: 1.1; color: #fff; }
+.cabecera .marca-texto b { display: block; font-size: .8rem; font-weight: 500; color: #7ee8fa; letter-spacing: .02em; }

@@ -237,6 +237,21 @@ const RESISTENCIAS_HTML = `
 <p>Ejemplos (5 bandas): <strong>rojo-rojo-negro-marrón-marrón</strong> = 220 × 10 = <strong>2 200 Ω</strong>. <strong>marrón-negro-negro-rojo-marrón</strong> = 100 × 100 = <strong>10 kΩ ±1 %</strong>. Con 4 bandas: <strong>rojo-rojo-marrón</strong> = 22 × 10 = <strong>220 Ω</strong>.</p>
 <p class="pista">Si tienes dudas, mide la resistencia con un multímetro en la escala de Ω.</p>
 
+<h2>Ejemplos resueltos</h2>
+<div class="tabla-wrap"><table>
+<thead><tr><th>Bandas (de izquierda a derecha)</th><th>Cálculo</th><th>Valor y tolerancia</th></tr></thead>
+<tbody>
+<tr><td>amarillo · violeta · rojo · dorado</td><td>47 × 10² = 4 700 Ω</td><td><strong>4,7 kΩ ±5 %</strong></td></tr>
+<tr><td>verde · azul · marrón · dorado</td><td>56 × 10¹ = 560 Ω</td><td><strong>560 Ω ±5 %</strong></td></tr>
+<tr><td>marrón · negro · negro · rojo · marrón</td><td>100 × 10² = 10 000 Ω</td><td><strong>10 kΩ ±1 %</strong></td></tr>
+<tr><td>rojo · rojo · negro · negro · marrón</td><td>220 × 10⁰ = 220 Ω</td><td><strong>220 Ω ±1 %</strong></td></tr>
+</tbody></table></div>
+<p class="pista">Regla: en 4 bandas, las dos primeras son dígitos, la tercera el multiplicador y la cuarta la tolerancia. En 5 bandas, las tres primeras son dígitos.</p>
+
+<h2>Practica: ¿cuánto vale esta resistencia?</h2>
+<p>Cada vez se dibuja una resistencia distinta. Elige el valor entre las cuatro opciones.</p>
+<div id="practica-resistencias"></div>
+
 <h2>Calcular la resistencia de un LED</h2>
 <p>Fórmula: <strong>R = (Vfuente − Vled) / I</strong>. Ejemplo con 5 V, LED rojo de 2 V y 15 mA:</p>
 <p>R = (5 − 2) / 0,015 = 200 Ω. Usa el valor comercial superior: <strong>220 Ω</strong>.</p>

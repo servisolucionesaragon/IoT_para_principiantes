@@ -512,6 +512,7 @@
     enlazarVista(a, b);
     if (a === 'leccion' && b) escribir('iot-ultima', b);
     if (a === 'configurador-rfid') enlazarConfiguradorRfid();
+    if (a === 'componente' && b === 'resistencias' && typeof iniciarPracticaResistencias === 'function') iniciarPracticaResistencias();
     if (a === 'laboratorio' && typeof window.montarLaboratorio === 'function') {
       window.montarLaboratorio($('#lab-raiz'));
     }
