@@ -329,5 +329,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar (foto de tienda)",
     "fuente": "https://www.mercadolibre.com.co/",
     "titulo": "Pantalla LCD 16×2 con módulo I²C (foto de MercadoLibre)"
+  },
+  "motor-dc": {
+    "src": "img/componentes/motor-dc.jpg",
+    "autor": "Tienda Zamux (motor DC)",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://www.zamux.co/",
+    "titulo": "Motor DC (foto de la tienda Zamux)"
   }
 };
