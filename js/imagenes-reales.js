@@ -52,10 +52,10 @@ const FOTOS_REALES = {
   },
   "display-7seg": {
     "src": "img/componentes/display-7seg.jpg",
-    "autor": "Thotypous (Paulo Matias)",
-    "licencia": "CC BY-SA 3.0",
-    "fuente": "https://commons.wikimedia.org/wiki/File:ALTERA_DE2_FPGA_Board.jpg",
-    "titulo": "File:ALTERA DE2 FPGA Board.jpg"
+    "autor": "Tienda Zamux (display TM1637)",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://www.zamux.co/",
+    "titulo": "Display de 4 dígitos TM1637 (foto de la tienda Zamux)"
   },
   "motor-paso-paso": {
     "src": "img/componentes/motor-paso-paso.jpg",
@@ -322,5 +322,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar",
     "fuente": "https://encrypted-tbn0.gstatic.com/",
     "titulo": "Sensor de sonido (imagen del docente)"
+  },
+  "lcd-i2c": {
+    "src": "img/componentes/lcd-i2c.webp",
+    "autor": "MercadoLibre (LCD 16×2 con módulo I²C, publicación del docente)",
+    "licencia": "Pendiente de confirmar (foto de tienda)",
+    "fuente": "https://www.mercadolibre.com.co/",
+    "titulo": "Pantalla LCD 16×2 con módulo I²C (foto de MercadoLibre)"
   }
 };
