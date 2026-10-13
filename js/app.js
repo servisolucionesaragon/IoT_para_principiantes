@@ -497,6 +497,7 @@
     else if (a === 'componente') { html = vistaComponente(b); ruta = 'componentes'; }
     else if (a === 'placas') { html = vistaPlacas(); ruta = 'placas'; }
     else if (a === 'configurador-rfid') { html = vistaConfiguradorRfid(); ruta = 'proyectos'; }
+    else if (a === 'descargas') { html = vistaDescargas(); ruta = 'descargas'; }
     else if (a === 'tinkercad') { location.hash = '#/leccion/m8-tinkercad'; return; }
     else if (a === 'laboratorio') {
       html = '<div id="lab-raiz"></div>';
