@@ -37,11 +37,11 @@ const FOTOS_REALES = {
     "titulo": "File:Tower Pro SG90 micro servo motor.jpg"
   },
   "hcsr04": {
-    "src": "img/componentes/hcsr04.jpg",
-    "autor": "Pradana Aumars (talk · contribs)",
-    "licencia": "CC BY-SA 4.0",
-    "fuente": "https://commons.wikimedia.org/wiki/File:Arduino_UNO_%2B_HC-SR04_%2B_HC_05_%2B_breadboard_-_bird%27s_eye_00.jpg",
-    "titulo": "File:Arduino UNO + HC-SR04 + HC 05 + breadboard - bird's eye 00.jpg"
+    "src": "img/componentes/hcsr04.png",
+    "autor": "Aportada por el docente (origen no indicado)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "",
+    "titulo": "Sensor ultrasónico HC-SR04 (imagen del docente)"
   },
   "protoboard": {
     "src": "img/componentes/protoboard.jpg",
