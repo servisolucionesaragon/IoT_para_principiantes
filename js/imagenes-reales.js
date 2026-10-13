@@ -119,5 +119,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar",
     "fuente": "",
     "titulo": "Cables jumper Dupont (imagen del docente)"
+  },
+  "mq135": {
+    "src": "img/componentes/mq135.png",
+    "autor": "Aportada por el docente (origen no indicado)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "",
+    "titulo": "Sensor MQ-135 (imagen del docente)"
   }
 };
