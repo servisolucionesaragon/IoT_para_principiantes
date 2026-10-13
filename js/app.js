@@ -600,6 +600,30 @@
     aplicarTema(nuevo);
   }
 
+  /* ---------- Visor de imágenes a pantalla completa ---------- */
+  function abrirVisor(src, alt) {
+    const capa = document.createElement('div');
+    capa.className = 'visor-imagen';
+    capa.setAttribute('role', 'dialog');
+    capa.setAttribute('aria-label', 'Imagen ampliada');
+    capa.innerHTML = `<button type="button" class="visor-cerrar" aria-label="Cerrar">✕</button>
+      <img src="${esc(src)}" alt="${esc(alt)}">
+      <p class="visor-pie">Toca la imagen o pulsa Esc para cerrar</p>`;
+    const cerrar = () => { capa.remove(); document.removeEventListener('keydown', alTeclado); };
+    const alTeclado = (e) => { if (e.key === 'Escape') cerrar(); };
+    capa.addEventListener('click', cerrar);
+    capa.querySelector('.visor-cerrar').addEventListener('click', cerrar);
+    document.addEventListener('keydown', alTeclado);
+    document.body.appendChild(capa);
+    capa.querySelector('.visor-cerrar').focus();
+  }
+  document.addEventListener('click', (e) => {
+    const img = e.target.closest && e.target.closest('#vista img');
+    if (!img || img.closest('a')) return;
+    e.preventDefault();
+    abrirVisor(img.currentSrc || img.src, img.alt || '');
+  });
+
   /* ---------- Arranque ---------- */
   function iniciar() {
     aplicarTema(leer(CLAVE_TEMA, null));

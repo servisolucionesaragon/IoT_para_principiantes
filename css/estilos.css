@@ -297,3 +297,10 @@ footer { font-size: .9rem; }
 .cabecera .marca img { display: block; flex: none; }
 .cabecera .marca-texto { font-size: 1.05rem; font-weight: 600; line-height: 1.1; color: #fff; }
 .cabecera .marca-texto b { display: block; font-size: .8rem; font-weight: 500; color: #7ee8fa; letter-spacing: .02em; }
+
+/* Imágenes ampliables y visor a pantalla completa */
+#vista img { cursor: zoom-in; }
+.visor-imagen { position: fixed; inset: 0; z-index: 100; background: rgba(5,11,17,.92); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; cursor: zoom-out; }
+.visor-imagen img { max-width: 100%; max-height: 86vh; width: auto; height: auto; object-fit: contain; border-radius: 12px; background: #fff; cursor: zoom-out; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+.visor-cerrar { position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 999px; border: 0; background: #fff; color: #0d1b2a; font-size: 20px; font-weight: 700; cursor: pointer; }
+.visor-pie { color: #cfe9f2; margin: 12px 0 0; font-size: .95rem; }
