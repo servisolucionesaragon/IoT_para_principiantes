@@ -175,5 +175,12 @@ const FOTOS_REALES = {
     "licencia": "Pendiente de confirmar",
     "fuente": "",
     "titulo": "Sensor de gas MQ-2 (imagen del docente)"
+  },
+  "sensor-lluvia": {
+    "src": "img/componentes/sensor-lluvia.png",
+    "autor": "Aportada por el docente (origen no indicado)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "",
+    "titulo": "Sensor de lluvia FC-37 (imagen del docente)"
   }
 };
