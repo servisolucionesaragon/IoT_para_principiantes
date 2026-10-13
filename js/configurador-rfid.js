@@ -16,11 +16,9 @@ function hostDesdeUrl(url) {
 }
 
 async function cargarPlantillaRfid(nombre) {
-  if (CONFIG_RFID.plantillas[nombre]) return CONFIG_RFID.plantillas[nombre];
-  const r = await fetch('plantillas/rfid/' + nombre + '.txt');
-  if (!r.ok) throw new Error('No se pudo cargar la plantilla ' + nombre + '.');
-  CONFIG_RFID.plantillas[nombre] = await r.text();
-  return CONFIG_RFID.plantillas[nombre];
+  // Las plantillas van incluidas en plantillas-rfid.js (funciona también desde file://)
+  if (typeof PLANTILLAS_RFID !== 'undefined' && PLANTILLAS_RFID[nombre]) return PLANTILLAS_RFID[nombre];
+  throw new Error('No está disponible la plantilla ' + nombre + '. Recarga la página.');
 }
 
 /* Reemplaza los valores configurables de un .ino (ESP32 o Arduino R4) */
