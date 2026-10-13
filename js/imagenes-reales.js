@@ -59,10 +59,10 @@ const FOTOS_REALES = {
   },
   "motor-paso-paso": {
     "src": "img/componentes/motor-paso-paso.jpg",
-    "autor": "Kushagra Keshari",
-    "licencia": "CC BY-SA 4.0",
-    "fuente": "https://commons.wikimedia.org/wiki/File:28BYJ-48_unipolar_stepper_motor_with_ULN2003_driver.jpg",
-    "titulo": "File:28BYJ-48 unipolar stepper motor with ULN2003 driver.jpg"
+    "autor": "Imagen de Google Imágenes (28BYJ-48 con ULN2003)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "https://encrypted-tbn0.gstatic.com/",
+    "titulo": "Motor paso a paso 28BYJ-48 con ULN2003 (imagen del docente)"
   },
   "sensor-nivel-agua": {
     "src": "img/componentes/sensor-nivel-agua.jpg",
