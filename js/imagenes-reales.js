@@ -16,11 +16,11 @@ const FOTOS_REALES = {
     "titulo": "File:2006 Renault Master LM35 DCi 100 LWB 2.5 Front.jpg"
   },
   "dht11": {
-    "src": "img/componentes/dht11.jpg",
-    "autor": "Edwiyanto",
-    "licencia": "CC BY-SA 4.0",
-    "fuente": "https://commons.wikimedia.org/wiki/File:Dht11.jpg",
-    "titulo": "File:Dht11.jpg"
+    "src": "img/componentes/dht11.png",
+    "autor": "Aportada por el docente (origen no indicado)",
+    "licencia": "Pendiente de confirmar",
+    "fuente": "",
+    "titulo": "Módulo DHT11 (imagen del docente)"
   },
   "rfid": {
     "src": "img/componentes/rfid.jpg",
