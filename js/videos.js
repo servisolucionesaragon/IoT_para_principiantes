@@ -12,8 +12,8 @@ const VIDEOS_CURSO = [
 
 function bloqueVideo(v) {
   return `<h2>Video: ${esc(v.titulo)}</h2>
-    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${v.id}" title="${esc(v.titulo)}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-    <p class="pista">Video externo de YouTube: <a href="https://youtu.be/${v.id}" target="_blank" rel="noopener">abrir en YouTube</a>.</p>`;
+    <div class="video"><iframe width="560" height="315" src="https://www.youtube.com/embed/${v.id}" title="${esc(v.titulo)}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div>
+    <p class="pista">Video de YouTube: <a href="https://youtu.be/${v.id}" target="_blank" rel="noopener">abrir en YouTube</a>.</p>`;
 }
 
 VIDEOS_CURSO.forEach(v => {
