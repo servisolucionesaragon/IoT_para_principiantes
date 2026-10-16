@@ -29,7 +29,8 @@ Plataforma web interactiva para personas que empiezan desde cero en IoT, Arduino
 10. **Señales:** se agregó una lección de señales analógicas y digitales en el módulo 1 (gráficas SVG generadas en el navegador, muestreo, resolución del ADC y PWM).
 11. **Videos (2026-10-15):** seis videos de YouTube insertados en sus lecciones (`js/videos.js`) con el reproductor oficial. Audios y audiolibro de terceros no se incluyen.
 12. **Descargas por categorías (2026-10-15):** tarjetas agrupadas en Libros de Arduino, Bonos, Kit de coche Elegoo, Robótica e IA y Retos.
-13. **Diseño:** tipografía Lexend (legibilidad), Tailwind por CDN, logo y favicon propios, texto a todo el ancho, visor de imágenes a pantalla completa y «Continuar donde quedaste».
+13. **Rediseño (2026-10-16):** sistema de diseño unificado en `css/estilos.css` (tokens, componentes, responsive y accesibilidad). Menú con icono y progreso por módulo; inicio con estadísticas, tarjetas de módulo y «Continuar»; etiquetas de metadatos en las lecciones. Se quitaron los componentes duplicados de Tailwind de `index.html`; Tailwind queda solo para utilidades.
+13b. **Diseño:** tipografía Lexend (legibilidad), Tailwind por CDN, logo y favicon propios, texto a todo el ancho, visor de imágenes a pantalla completa y «Continuar donde quedaste».
 14. **Publicación:** Cloudflare está conectado a GitHub. Cada `push` a `main` se publica solo (ver sección 7).
 
 **Corrección de publicación (2026-10-15):** el build automático publicaba toda la carpeta, incluida `.git`, cuyo historial supera 25 MiB (límite de Cloudflare), y falló. Se agregó `.assetsignore` para excluir `.git`, `docs`, `publicar`, `proyectos` y los `.md`. Si un build falla, revisar con `cf builds logs get <build-uuid>`.
