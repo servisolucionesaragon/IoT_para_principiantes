@@ -318,6 +318,7 @@
       ${p.imagen ? `<figure class="diagrama"><img src="${esc(p.imagen.src)}" alt="${esc(p.imagen.alt)}" loading="lazy" style="max-width:100%;height:auto"><figcaption>Diagrama de conexión del proyecto.</figcaption></figure>` : ''}
       ${p.configuracion ? `<h2>Configurar el buzzer (HIGH o LOW)</h2>${p.configuracion}` : ''}
       ${p.web ? `<h2>Página web para visualizar los datos</h2>${p.web}` : ''}
+      ${p.diagramas ? '' : diagramaConexiones(p.conexiones, p.placa, p.titulo)}
       ${p.codigo
         ?`<div class="acciones"><button type="button" class="secundario" id="btn-lab-proyecto" data-proyecto="${p.id}">Abrir en el laboratorio</button></div>
            <h2>Código</h2>${cod(p.codigo)}`

@@ -72,7 +72,7 @@ ${tabla(['Síntoma', 'Causa frecuente', 'Solución'], [
 /* Ejemplos guiados: cada uno con componentes, conexiones, código, pasos y resultado */
 function ejemploTinkercad({ id, titulo, objetivo, componentes, conexiones, codigo, pasos, resultado, cambiar, quiz, fuentes }) {
   return {
-    id, modulo: 'm8', titulo, nivel: 'Principiante', minutos: 15,
+    id, modulo: 'm8', titulo, conexionesEjemplo: conexiones, nivel: 'Principiante', minutos: 15,
     resumen: objetivo,
     cuerpo: `
 <h2>Objetivo</h2>
