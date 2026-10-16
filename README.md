@@ -102,7 +102,7 @@ plataforma-iot/
 │   ├── diagramas-rfid.js       Diagrama de Arduino UNO para el proyecto RFID
 │   ├── imagenes.js             Ilustraciones SVG originales
 │   ├── imagenes-reales.js      Fotos reales con autor, licencia y fuente
-│   ├── diagramas-auto.js       Diagramas de conexión generados desde cada tabla (ejemplos y proyectos)
+│   ├── diagramas-auto.js       Diagramas de conexión generados desde cada tabla (ejemplos y proyectos; incluyen resistencias y los componentes de la lista)
 │   ├── videos.js               Videos de YouTube insertados en las lecciones
 │   ├── descargas.js            Página de descargas, organizada por categorías en tarjetas
 │   ├── descargas-lista.js      Lista de archivos de descargas (generada)
