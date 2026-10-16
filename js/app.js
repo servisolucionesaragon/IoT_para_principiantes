@@ -627,6 +627,13 @@
 
   /* ---------- Arranque ---------- */
   function iniciar() {
+    if (location.protocol === 'file:') {
+      const aviso = document.createElement('div');
+      aviso.className = 'caja advertencia';
+      aviso.style.margin = '12px 16px 0';
+      aviso.innerHTML = '<strong>Estás viendo la plataforma desde una carpeta local.</strong> Los videos de YouTube solo se reproducen en la versión en internet: <a href="https://iot-para-principiantes.servisolucionesti.workers.dev/" target="_blank" rel="noopener">abrir la plataforma en línea</a>.';
+      document.querySelector('.contenedor').before(aviso);
+    }
     aplicarTema(leer(CLAVE_TEMA, null));
     pintarMenu();
 
