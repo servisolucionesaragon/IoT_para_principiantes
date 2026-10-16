@@ -1,11 +1,11 @@
-# Archivos que NO se publican en el sitio (solo se sirven index, css, js, img, plantillas y descargas)
-.git
-.gitignore
-.claude
-publicar
-docs
-proyectos
-node_modules
+# Archivos que NO se publican en el sitio (las reglas están ancladas a la raíz del repositorio)
+/.git
+/.gitignore
+/.claude
+/publicar
+/docs
+/proyectos
+/node_modules
 *.md
 .DS_Store
-.assetsignore
+/.assetsignore
