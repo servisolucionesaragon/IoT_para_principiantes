@@ -206,6 +206,21 @@ const DESCARGAS = {
    "grupo": "retos-sin-pantallas",
    "ruta": "retos-sin-pantallas/03 - RETOS DE CREATIVIDAD-20260905T142221Z-1-001/03 - RETOS DE CREATIVIDAD/Retos-de-Creatividad.pdf",
    "mb": 0.91
+  },
+  {
+   "grupo": "bonos-arduino",
+   "ruta": "bonos-arduino/Bono-1-Lista-de-Componentes-y-Donde-Comprarlos.pdf",
+   "mb": 5.44
+  },
+  {
+   "grupo": "bonos-arduino",
+   "ruta": "bonos-arduino/Bono-2-Codigos-y-Plantillas-Listas-para-Usar.pdf",
+   "mb": 6.23
+  },
+  {
+   "grupo": "bonos-arduino",
+   "ruta": "bonos-arduino/Bono-3-Solucion-de-Errores-Comunes.pdf",
+   "mb": 4.25
   }
  ],
  "excluidos": [
