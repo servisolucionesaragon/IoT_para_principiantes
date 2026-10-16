@@ -29,6 +29,8 @@ Plataforma web interactiva para personas que empiezan desde cero en IoT, Arduino
 10. **Señales:** se agregó una lección de señales analógicas y digitales en el módulo 1 (gráficas SVG generadas en el navegador, muestreo, resolución del ADC y PWM).
 11. **Videos (2026-10-15):** seis videos de YouTube insertados en sus lecciones (`js/videos.js`) con el reproductor oficial. Audios y audiolibro de terceros no se incluyen.
 12. **Descargas por categorías (2026-10-15):** tarjetas agrupadas en Libros de Arduino, Bonos, Kit de coche Elegoo, Robótica e IA y Retos.
+13a. **Diagramas automáticos (2026-10-16):** `js/diagramas-auto.js` dibuja un esquema de conexión (placa, componentes y cables) a partir de la tabla de cada ejemplo de Tinkercad y de cada proyecto. Los diagramas son esquemas simplificados que siguen la tabla; no sustituyen la documentación de la placa.
+13b. **Corrección .assetsignore (2026-10-16):** las reglas se anclaron a la raíz; antes `proyectos` excluía también `img/proyectos`.
 13. **Rediseño (2026-10-16):** sistema de diseño unificado en `css/estilos.css` (tokens, componentes, responsive y accesibilidad). Menú con icono y progreso por módulo; inicio con estadísticas, tarjetas de módulo y «Continuar»; etiquetas de metadatos en las lecciones. Se quitaron los componentes duplicados de Tailwind de `index.html`; Tailwind queda solo para utilidades.
 13b. **Diseño:** tipografía Lexend (legibilidad), Tailwind por CDN, logo y favicon propios, texto a todo el ancho, visor de imágenes a pantalla completa y «Continuar donde quedaste».
 14. **Publicación:** Cloudflare está conectado a GitHub. Cada `push` a `main` se publica solo (ver sección 7).
