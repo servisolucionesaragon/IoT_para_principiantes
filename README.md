@@ -99,7 +99,8 @@ plataforma-iot/
 │   ├── diagramas-rfid.js       Diagrama de Arduino UNO para el proyecto RFID
 │   ├── imagenes.js             Ilustraciones SVG originales
 │   ├── imagenes-reales.js      Fotos reales con autor, licencia y fuente
-│   ├── descargas.js            Página de descargas
+│   ├── videos.js               Videos de YouTube insertados en las lecciones
+│   ├── descargas.js            Página de descargas, organizada por categorías en tarjetas
 │   ├── descargas-lista.js      Lista de archivos de descargas (generada)
 │   ├── configurador-rfid.js    Formulario que genera el código del proyecto RFID
 │   ├── plantillas-rfid.js      Plantillas del configurador, incluidas en el archivo
@@ -111,6 +112,7 @@ plataforma-iot/
 ├── plantillas/rfid/            Plantillas del proyecto RFID (sin credenciales)
 ├── proyectos/control-acceso-rfid/  Código ESP32 y Arduino R4, página web y documentación del proyecto RFID
 ├── descargas/                  Material complementario para descargar (PDF y código)
+├── .assetsignore               Lista de lo que NO se publica en el sitio (.git, documentación, herramientas)
 ├── publicar/                   Herramientas de publicación (respaldo; no se publica)
 └── docs/
     ├── CONTEXTO.md             Contexto, decisiones, historial y pendientes
@@ -164,6 +166,8 @@ Como respaldo, `cf deploy` desde la carpeta `publicar` (procedimiento en `docs/C
 - **Libros y kits del material:** no se publica su texto ni sus imágenes. Se usaron como fuente para elegir temas y verificar secuencias.
 
 Si una foto no puede publicarse, se retira: el componente vuelve a mostrar su ilustración.
+
+**Videos:** seis videos de YouTube se muestran dentro de sus lecciones con el reproductor oficial (no se alojan en el sitio). Los audios y el audiolibro del material no se incluyen porque son de terceros y no son parte del curso.
 
 **Descargas:** el docente confirmó que tiene derecho a redistribuir los libros y el material del kit y de los retos. Se publican Mundo Arduino, Robótica e IA (salvo dos PDF de más de 25 MB), el kit Elegoo y los 50 retos.
 

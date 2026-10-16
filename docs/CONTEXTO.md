@@ -27,8 +27,12 @@ Plataforma web interactiva para personas que empiezan desde cero en IoT, Arduino
 8. **Fotos reales:** se usan con la autorización del docente. Son de tiendas, de Google, de fabricantes y de Wikimedia (con licencias libres). 43 de 48 tienen la licencia **pendiente de confirmar**. Créditos en [CREDITOS_IMAGENES.md](CREDITOS_IMAGENES.md). Las ilustraciones SVG propias cubren los componentes sin foto.
 9. **Descargas (2026-10-13):** el docente confirmó que puede redistribuir los libros y el material (Mundo Arduino, Robótica e IA, kit Elegoo y 50 retos). Se publicaron 41 archivos en `descargas/` y la página `#/descargas`. Cloudflare no sirve archivos de más de 25 MB: quedan pendientes el «Tomo 3» (61 MB) y «Inteligencia Artificial Educativa – Aprende IA Jugando» (31 MB). Decisión pendiente: dividirlos en partes o alojarlos fuera (R2 tiene plan gratuito; consultar antes).
 10. **Señales:** se agregó una lección de señales analógicas y digitales en el módulo 1 (gráficas SVG generadas en el navegador, muestreo, resolución del ADC y PWM).
-11. **Diseño:** tipografía Lexend (legibilidad), Tailwind por CDN, logo y favicon propios, texto a todo el ancho, visor de imágenes a pantalla completa y «Continuar donde quedaste».
-12. **Publicación:** Cloudflare está conectado a GitHub. Cada `push` a `main` se publica solo (ver sección 7).
+11. **Videos (2026-10-15):** seis videos de YouTube insertados en sus lecciones (`js/videos.js`) con el reproductor oficial. Audios y audiolibro de terceros no se incluyen.
+12. **Descargas por categorías (2026-10-15):** tarjetas agrupadas en Libros de Arduino, Bonos, Kit de coche Elegoo, Robótica e IA y Retos.
+13. **Diseño:** tipografía Lexend (legibilidad), Tailwind por CDN, logo y favicon propios, texto a todo el ancho, visor de imágenes a pantalla completa y «Continuar donde quedaste».
+14. **Publicación:** Cloudflare está conectado a GitHub. Cada `push` a `main` se publica solo (ver sección 7).
+
+**Corrección de publicación (2026-10-15):** el build automático publicaba toda la carpeta, incluida `.git`, cuyo historial supera 25 MiB (límite de Cloudflare), y falló. Se agregó `.assetsignore` para excluir `.git`, `docs`, `publicar`, `proyectos` y los `.md`. Si un build falla, revisar con `cf builds logs get <build-uuid>`.
 
 ## 4. Estado actual
 
