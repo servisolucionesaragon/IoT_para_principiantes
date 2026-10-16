@@ -70,7 +70,10 @@ Al hacer clic en una imagen se abre a pantalla completa. Se cierra con un clic o
 ## 4. Tecnología
 
 - **Sitio estático:** HTML, CSS y JavaScript. No hay servidor propio ni base de datos.
-- **Estilos:** Tailwind CSS (desde su CDN oficial) y `css/estilos.css`. Los colores son variables, así que el modo claro y el oscuro siguen al sistema o al botón **Modo**.
+- **Sistema de diseño:** todo el estilo está en `css/estilos.css`, organizado en tokens (colores, radios, sombras, transiciones), base, componentes, vistas y breakpoints. Los colores son variables: el modo claro y el oscuro siguen al sistema o al botón **Modo**. Tailwind (CDN) queda solo para utilidades sueltas.
+- **Interacción:** estados hover, focus (anillo visible) y active en botones, tarjetas, menú y campos; animaciones suaves que se desactivan si el sistema pide movimiento reducido.
+- **Accesibilidad:** enlace «Ir al contenido», etiquetas en botones con icono, contraste AA en textos secundarios, opción de contraste alto y navegación completa con teclado.
+- **Responsive:** escritorio con menú fijo; tableta con columnas más estrechas; móvil con menú deslizable y cabecera compacta.
 - **Tipografía:** Lexend, desde Google Fonts.
 - **Publicación:** Cloudflare Workers con archivos estáticos (plan gratuito).
 - **Sin compilación:** los archivos se editan y se publican tal cual.
