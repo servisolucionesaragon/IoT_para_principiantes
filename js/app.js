@@ -50,7 +50,24 @@
         a.appendChild(s);
       }
     });
+    actualizarProgresoModulos();
   }
+
+  /* Avance por módulo en el menú: "2/4" y barra */
+  function actualizarProgresoModulos() {
+    MODULOS.forEach(m => {
+      const ls = leccionesDeModulo(m.id);
+      const hechas = ls.filter(l => completadas().has(l.id)).length;
+      const pct = ls.length ? Math.round((hechas / ls.length) * 100) : 0;
+      const prog = document.querySelector(`[data-modulo-prog="${m.id}"]`);
+      if (prog) prog.textContent = `${hechas}/${ls.length}`;
+      const barra = document.querySelector(`[data-modulo-barra="${m.id}"] > div`);
+      if (barra) barra.style.width = pct + '%';
+    });
+  }
+
+  /* Icono por módulo (decorativo; el texto del módulo sigue siendo la referencia) */
+  const ICONOS_MODULO = { m1: '📡', m2: '🔌', m3: '📶', m4: '🌡️', m5: '🧩', m6: '🐞', m7: '☁️', m8: '🖥️', m9: '🚗' };
 
   /* ---------- Utilidades ---------- */
   function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
@@ -63,7 +80,8 @@
   function pintarMenu() {
     const cont = $('#menu-modulos');
     cont.innerHTML = MODULOS.map(m => `
-      <h2>${esc(m.titulo.replace(/^Módulo \d+ · /, ''))}</h2>
+      <h2><span class="mod-ico" aria-hidden="true">${ICONOS_MODULO[m.id] || '📘'}</span><span>${esc(m.titulo.replace(/^Módulo \d+ · /, ''))}</span><span class="mod-prog" data-modulo-prog="${m.id}"></span></h2>
+      <div class="mod-barra" data-modulo-barra="${m.id}" aria-hidden="true"><div></div></div>
       ${leccionesDeModulo(m.id).map(l => `<a href="${enlaceLeccion(l)}" data-leccion="${l.id}" data-ruta="leccion/${l.id}">${esc(l.titulo)}</a>`).join('')}
     `).join('');
     pintarProgreso();
@@ -160,44 +178,54 @@
   function vistaInicio() {
     const total = LECCIONES.length;
     const hechas = LECCIONES.filter(l => completadas().has(l.id)).length;
+    const pct = Math.round(hechas / total * 100);
+    const ult = leer('iot-ultima', null);
+    const continuar = ult && leccionPorId(ult);
+    const modulos = MODULOS.map(m => {
+      const ls = leccionesDeModulo(m.id);
+      const h = ls.filter(l => completadas().has(l.id)).length;
+      const p = ls.length ? Math.round(h / ls.length * 100) : 0;
+      return `<a class="tarjeta modulo-card" href="#/leccion/${ls[0].id}">
+        <span class="tarjeta-icono" aria-hidden="true">${ICONOS_MODULO[m.id] || '📘'}</span>
+        <span style="display:flex;flex-direction:column;gap:4px;min-width:0">
+          <span class="etiqueta">${ls.length} lecciones${p === 100 ? ' · completo' : ''}</span>
+          <strong>${esc(m.titulo.replace(/^Módulo \d+ · /, ''))}</strong>
+          <span>${esc(m.descripcion)}</span>
+          <span class="progreso-barra" role="progressbar" aria-label="Avance del módulo" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${p}"><span style="display:block;height:100%;width:${p}%;border-radius:999px;background:linear-gradient(90deg,var(--primario),var(--acento))"></span></span>
+          <span class="pista">${h} de ${ls.length} completadas</span>
+        </span>
+      </a>`;
+    }).join('');
     return `
-      <div class="hero mb-6">
-        <p class="text-sm font-semibold uppercase tracking-widest opacity-80">IoT para principiantes</p>
-        <h1 class="!text-3xl sm:!text-4xl">Aprende electrónica, Arduino, ESP32 y IoT desde cero</h1>
-        <p class="max-w-2xl">Entiende un concepto, mira cómo se conecta el circuito, copia el código y comprueba el resultado. Todo en español.</p>
+      <div class="hero">
+        <span class="etiqueta-hero">● Aprende haciendo</span>
+        <h1>Electrónica, Arduino, ESP32 e IoT desde cero</h1>
+        <p>Entiende un concepto, mira cómo se conecta el circuito, copia el código y comprueba el resultado. Todo en español y a tu ritmo.</p>
         <div class="acciones">
-          <a class="boton !bg-white !text-primario" href="#/leccion/m1-que-es-iot">Empezar por el principio</a>
-          <a class="boton secundario !text-white !ring-white" href="#/componentes">Ver sensores y dispositivos</a>
+          <a class="boton" href="#/leccion/m1-que-es-iot">Empezar por el principio →</a>
+          <a class="boton secundario" href="#/componentes">Ver sensores y dispositivos</a>
         </div>
       </div>
-      <div class="caja advertencia"><strong>Antes de empezar</strong>Trabaja con la placa desconectada al cambiar cables. Los ESP32 usan 3,3 V: no conectes sensores de 5 V directamente a sus pines.</div>
-      ${(() => {
-        const ult = leer('iot-ultima', null);
-        const l = ult && leccionPorId(ult);
-        return l ? `<div class="tarjeta" style="margin:20px 0"><span class="etiqueta">Continúa donde quedaste</span><strong>${esc(l.titulo)}</strong><a class="boton" href="${enlaceLeccion(l)}" style="align-self:flex-start">Seguir leyendo →</a></div>` : '';
-      })()}
-      <h2>Tu progreso</h2>
-      <div class="progreso-barra"><div style="width:${Math.round(hechas / total * 100)}%"></div></div>
-      <p>${hechas} de ${total} lecciones completadas.</p>
-      <h2>Módulos</h2>
-      <div class="tarjetas">
-        ${MODULOS.map(m => {
-          const ls = leccionesDeModulo(m.id);
-          const h = ls.filter(l => completadas().has(l.id)).length;
-          return `<a class="tarjeta" href="#/leccion/${ls[0].id}">
-            <span class="etiqueta">${ls.length} lecciones</span>
-            <strong>${esc(m.titulo)}</strong>
-            <span>${esc(m.descripcion)}</span>
-            <span class="estado">${h} completadas</span>
-          </a>`;
-        }).join('')}
+      <div class="stats" aria-label="Resumen del curso">
+        <div class="stat"><strong>${total}</strong><span>lecciones</span></div>
+        <div class="stat"><strong>${COMPONENTES.length}</strong><span>sensores y dispositivos</span></div>
+        <div class="stat"><strong>${PROYECTOS.length}</strong><span>proyectos</span></div>
+        <div class="stat"><strong>${pct}%</strong><span>de tu progreso (${hechas}/${total})</span></div>
       </div>
+      ${continuar ? `<div class="tarjeta" style="margin:20px 0;flex-direction:row;align-items:center;gap:16px;flex-wrap:wrap">
+        <span class="tarjeta-icono" aria-hidden="true">▶</span>
+        <span style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:200px"><span class="etiqueta">Continúa donde quedaste</span><strong>${esc(continuar.titulo)}</strong></span>
+        <a class="boton" href="${enlaceLeccion(continuar)}">Seguir leyendo →</a>
+      </div>` : ''}
+      <h2>Módulos del curso</h2>
+      <div class="tarjetas">${modulos}</div>
       <h2>Herramientas</h2>
       <div class="tarjetas">
-        <a class="tarjeta" href="#/laboratorio"><strong>Laboratorio USB</strong><span>Conecta tu placa y usa el editor y el monitor serie.</span></a>
-        <a class="tarjeta" href="#/proyectos"><strong>Biblioteca de proyectos</strong><span>Proyectos por niveles de dificultad.</span></a>
-        <a class="tarjeta" href="#/diagnostico"><strong>Solución de problemas</strong><span>Qué hacer cuando algo no funciona.</span></a>
-        <a class="tarjeta" href="#/retos"><strong>Retos</strong><span>Ejercicios con pistas progresivas.</span></a>
+        <a class="tarjeta" href="#/laboratorio"><span class="tarjeta-icono" aria-hidden="true">🔬</span><strong>Laboratorio USB</strong><span>Conecta tu placa y usa el editor y el monitor serie.</span></a>
+        <a class="tarjeta" href="#/proyectos"><span class="tarjeta-icono" aria-hidden="true">🛠️</span><strong>Biblioteca de proyectos</strong><span>Proyectos por niveles de dificultad y filtro por sensor.</span></a>
+        <a class="tarjeta" href="#/diagnostico"><span class="tarjeta-icono" aria-hidden="true">🩺</span><strong>Solución de problemas</strong><span>Qué hacer cuando algo no funciona.</span></a>
+        <a class="tarjeta" href="#/retos"><span class="tarjeta-icono" aria-hidden="true">🧠</span><strong>Retos</strong><span>Ejercicios con pistas progresivas.</span></a>
+        <a class="tarjeta" href="#/descargas"><span class="tarjeta-icono" aria-hidden="true">📥</span><strong>Descargas</strong><span>Libros, bonos y programas de apoyo, por categoría.</span></a>
       </div>`;
   }
 
@@ -228,7 +256,7 @@
     return `
       <p class="migas"><a href="#/inicio">Inicio</a> › <a href="#/modulo/${m.id}">${esc(m.titulo)}</a> › ${esc(l.titulo)}</p>
       <h1>${esc(l.titulo)}</h1>
-      <p class="pista">Nivel: ${esc(l.nivel)} · Tiempo aproximado: ${l.minutos} min</p>
+      <div class="chips"><span class="chip">📘 ${esc(m.titulo.replace(/^Módulo \d+ · /, ''))}</span><span class="chip">🎯 ${esc(l.nivel)}</span><span class="chip">⏱️ ${l.minutos} min</span>${completadas().has(id) ? '<span class="chip chip-ok">✓ Completada</span>' : ''}</div>
       <p>${esc(l.resumen)}</p>
       <div class="acciones">
         ${tieneCodigo ? '<button type="button" class="secundario" id="btn-lab-leccion">Abrir primer ejemplo en el laboratorio</button>' : ''}
