@@ -12,7 +12,7 @@ const VIDEOS_CURSO = [
 
 function bloqueVideo(v) {
   return `<h2>Video: ${esc(v.titulo)}</h2>
-    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${v.id}" title="${esc(v.titulo)}" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${v.id}" title="${esc(v.titulo)}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
     <p class="pista">Video externo de YouTube: <a href="https://youtu.be/${v.id}" target="_blank" rel="noopener">abrir en YouTube</a>.</p>`;
 }
 
